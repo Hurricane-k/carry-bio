@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://carrybio.netlify.app/about/</loc>
+    <lastmod>2023-02-07T14:36:22+08:00</lastmod>
+  </url><url>
+    <loc>https://carrybio.netlify.app/</loc>
+    <lastmod>2023-02-07T14:28:17+08:00</lastmod>
+  </url><url>
+    <loc>https://carrybio.netlify.app/posts/blog1/</loc>
+    <lastmod>2023-02-07T14:17:18+08:00</lastmod>
+  </url><url>
+    <loc>https://carrybio.netlify.app/posts/</loc>
+    <lastmod>2023-02-07T14:17:18+08:00</lastmod>
+  </url><url>
+    <loc>https://carrybio.netlify.app/categories/</loc>
+  </url><url>
+    <loc>https://carrybio.netlify.app/series/</loc>
+  </url><url>
+    <loc>https://carrybio.netlify.app/tags/</loc>
+  </url>
+</urlset>

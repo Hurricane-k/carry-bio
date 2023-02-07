@@ -1,6 +1,6 @@
 baseURL = 'https://carrybio.netlify.app/' #'http://example.org/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Carry New Hugo Site'
 theme = 'paper'
 
 DefaultContentLanguage = "en"
@@ -9,19 +9,13 @@ enableInlineShortcodes = true
 # See https://github.com/gohugoio/hugo/issues/7228#issuecomment-714490456
 ignoreErrors = ["error-remote-getjson"]
 
-# ------------------------------
-theme = "hugo-paper"
-title = "Paper"
-
 [params]
-  color = 'linen'
+  color = 'wheat'
 
-  twitter = 'nanxiaobei'
-  github = 'nanxiaobei'
-  instagram = 'nan.xiaobei'
+  github = 'Hurricane-k'
 
   avatar = 'nanxiaobei@gmail.com'
-  name = 'Lee'
+  name = 'Carry'
   bio = 'Discover fresh context'
 # ------------------------------
 
@@ -39,9 +33,9 @@ title = "Paper"
     url = "/about/"
     weight = 10
   [[menu.main]]
-    identifier = "contact"
-    name = "Contact"
-    url = "/contact/"
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
     weight = 10
 
 [taxonomies]
