@@ -28,12 +28,12 @@
     </item>
     
     <item>
-      <title>Blog1</title>
+      <title>handouts - heat transfer </title>
       <link>https://carrybio.netlify.app/posts/blog1/</link>
       <pubDate>Tue, 07 Feb 2023 14:17:18 +0800</pubDate>
       
       <guid>https://carrybio.netlify.app/posts/blog1/</guid>
-      <description>test</description>
+      <description>test 中文测试</description>
     </item>
     
   </channel>
