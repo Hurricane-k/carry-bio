@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Carry New Hugo Site</title>
+    <title>Posts on Carry HE</title>
     <link>https://carrybio.netlify.app/posts/</link>
-    <description>Recent content in Posts on Carry New Hugo Site</description>
+    <description>Recent content in Posts on Carry HE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 07 Feb 2023 14:17:18 +0800</lastBuildDate><atom:link href="https://carrybio.netlify.app/posts/index.xml" rel="self" type="application/rss+xml" />

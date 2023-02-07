@@ -1,6 +1,6 @@
 baseURL = 'https://carrybio.netlify.app/' #'http://example.org/'
 languageCode = 'en-us'
-title = 'Carry New Hugo Site'
+title = 'Carry HE'
 theme = 'paper'
 
 DefaultContentLanguage = "en"
@@ -14,9 +14,9 @@ ignoreErrors = ["error-remote-getjson"]
 
   github = 'Hurricane-k'
 
-  avatar = 'nanxiaobei@gmail.com'
-  name = 'Carry'
-  bio = 'Discover fresh context'
+  avatar = 'https://avatars.githubusercontent.com/u/56281608?v=4'
+  name = 'Carry HE'
+  bio = 'Discover Fresh, Explore Unknown'
 # ------------------------------
 
 # needed to  render raw HTML (e.g. <sub>, <sup>, <kbd>, <mark>)
@@ -36,6 +36,11 @@ ignoreErrors = ["error-remote-getjson"]
     identifier = "posts"
     name = "Posts"
     url = "/posts/"
+    weight = 10
+  [[menu.main]]
+    identifier = "publications"
+    name = "Publications"
+    url = "/publications/"
     weight = 10
 
 [taxonomies]
