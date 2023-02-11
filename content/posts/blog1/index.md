@@ -3,6 +3,7 @@ title: "handouts(1) - heat transfer"
 date: 2023-02-07T14:17:18+08:00
 draft: false
 math: true
+author: Carry HE
 ---
 
 # Preface
