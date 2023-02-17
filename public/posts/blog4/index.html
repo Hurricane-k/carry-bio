@@ -50,7 +50,22 @@
   
   <meta name="theme-color" />
   
-  <meta name="description" content="" />
+  <meta name="description" content="对流传热分析理论基础 影响对流传热的五大因素
+流动起因：温差引起的自然对流还是强制动力引起的受迫对流
+流体有无相变
+流动状态：粘性流体存在两种状态，分别是紊流和层流
+几何因素：形状、大小、光滑或粗糙、表面和流体之间的相对位置
+热物性质：流体物性随流体种类、温度、压力变化而变化，比如密度、导热率、比热容都会收到影响
+温度对黏度的影响：气体温度$T \uparrow$ 黏度增大，液体温度$T \uparrow$ 黏度减小，所以要根据定性温度选择经验公式中的参数
+典型对流传热类型： 见Appendix
+对流传热微分方程式：（图省略）$h_x = - \frac{\lambda}{\triangle t_x}(\frac{\partial t}{\partial y})|_{w,x}$
+此处仅限于不可压缩的牛顿流体
+物理描述：由于粘性作用，流体速度在近壁面处停滞，处于光滑移动状态，热量只能以导热方式通过很薄的边界层
+对流传热微分方程式和第三类边界条件的分别（简答题）：对流传热微分方程式中表面对流传热系数$h$ 是未知的，但是第三类边界条件中是已经的；对流传热微分方程式中导热率是流体的，第三类边界条件中是固体的；对流传热微分方程式中温度梯度是流体的，第三类边界条件中式固体的
+对流传热微分方程组：
+连续性方程：二维常物性不可压缩流体稳态流动连续性方程$\frac{\partial u}{\partial x}&#43;\frac{\partial v}{\partial y}=0$
+动量微分方程式：描述流体速度场，分析微元体的动量守恒，又称纳维斯托克斯方程，大名鼎鼎的N-S方程：$\rho(\frac{\partial u}{\partial \tau}&#43;u \frac{\partial u}{\partial x}&#43;v \frac{\partial u}{\partial y})=X-\frac{\partial p}{\partial x}&#43;\mu (\frac{\partial^2 u}{\partial x^2}&#43;\frac{\partial^2u}{\partial y^2})$ 以及 $\rho(\frac{\partial v}{\partial \tau}&#43;u\frac{\partial v}{\partial x}&#43;v\frac{\partial v}{\partial y})=Y-\frac{\partial p}{\partial y}&#43;\mu(\frac{\partial^2 v}{\partial x^2}&#43;\frac{\partial^2 v}{\partial y^2})$
+能量微分方程，描述流体的温度场，由能量守恒守恒原理分析进出微元体的各项能量来建立 $\rho c_p (\frac{\partial t}{\partial \tau}&#43;u \frac{\partial t}{\partial x}&#43;v \frac{\partial t}{\partial y})=\lambda(\frac{\partial^2 t}{\partial x^2}&#43;\frac{\partial^2 t}{\partial y^2})$" />
   <meta
     name="author"
     content="Carry HE"
@@ -108,7 +123,22 @@
   
   
   <meta property="og:title" content="handouts(4) - heat transfer" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="对流传热分析理论基础 影响对流传热的五大因素
+流动起因：温差引起的自然对流还是强制动力引起的受迫对流
+流体有无相变
+流动状态：粘性流体存在两种状态，分别是紊流和层流
+几何因素：形状、大小、光滑或粗糙、表面和流体之间的相对位置
+热物性质：流体物性随流体种类、温度、压力变化而变化，比如密度、导热率、比热容都会收到影响
+温度对黏度的影响：气体温度$T \uparrow$ 黏度增大，液体温度$T \uparrow$ 黏度减小，所以要根据定性温度选择经验公式中的参数
+典型对流传热类型： 见Appendix
+对流传热微分方程式：（图省略）$h_x = - \frac{\lambda}{\triangle t_x}(\frac{\partial t}{\partial y})|_{w,x}$
+此处仅限于不可压缩的牛顿流体
+物理描述：由于粘性作用，流体速度在近壁面处停滞，处于光滑移动状态，热量只能以导热方式通过很薄的边界层
+对流传热微分方程式和第三类边界条件的分别（简答题）：对流传热微分方程式中表面对流传热系数$h$ 是未知的，但是第三类边界条件中是已经的；对流传热微分方程式中导热率是流体的，第三类边界条件中是固体的；对流传热微分方程式中温度梯度是流体的，第三类边界条件中式固体的
+对流传热微分方程组：
+连续性方程：二维常物性不可压缩流体稳态流动连续性方程$\frac{\partial u}{\partial x}&#43;\frac{\partial v}{\partial y}=0$
+动量微分方程式：描述流体速度场，分析微元体的动量守恒，又称纳维斯托克斯方程，大名鼎鼎的N-S方程：$\rho(\frac{\partial u}{\partial \tau}&#43;u \frac{\partial u}{\partial x}&#43;v \frac{\partial u}{\partial y})=X-\frac{\partial p}{\partial x}&#43;\mu (\frac{\partial^2 u}{\partial x^2}&#43;\frac{\partial^2u}{\partial y^2})$ 以及 $\rho(\frac{\partial v}{\partial \tau}&#43;u\frac{\partial v}{\partial x}&#43;v\frac{\partial v}{\partial y})=Y-\frac{\partial p}{\partial y}&#43;\mu(\frac{\partial^2 v}{\partial x^2}&#43;\frac{\partial^2 v}{\partial y^2})$
+能量微分方程，描述流体的温度场，由能量守恒守恒原理分析进出微元体的各项能量来建立 $\rho c_p (\frac{\partial t}{\partial \tau}&#43;u \frac{\partial t}{\partial x}&#43;v \frac{\partial t}{\partial y})=\lambda(\frac{\partial^2 t}{\partial x^2}&#43;\frac{\partial^2 t}{\partial y^2})$" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://carrybio.netlify.app/posts/blog4/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-02-11T21:31:56+08:00" />
@@ -116,14 +146,44 @@
 
   
   <meta itemprop="name" content="handouts(4) - heat transfer">
-<meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-02-11T21:31:56+08:00" />
+<meta itemprop="description" content="对流传热分析理论基础 影响对流传热的五大因素
+流动起因：温差引起的自然对流还是强制动力引起的受迫对流
+流体有无相变
+流动状态：粘性流体存在两种状态，分别是紊流和层流
+几何因素：形状、大小、光滑或粗糙、表面和流体之间的相对位置
+热物性质：流体物性随流体种类、温度、压力变化而变化，比如密度、导热率、比热容都会收到影响
+温度对黏度的影响：气体温度$T \uparrow$ 黏度增大，液体温度$T \uparrow$ 黏度减小，所以要根据定性温度选择经验公式中的参数
+典型对流传热类型： 见Appendix
+对流传热微分方程式：（图省略）$h_x = - \frac{\lambda}{\triangle t_x}(\frac{\partial t}{\partial y})|_{w,x}$
+此处仅限于不可压缩的牛顿流体
+物理描述：由于粘性作用，流体速度在近壁面处停滞，处于光滑移动状态，热量只能以导热方式通过很薄的边界层
+对流传热微分方程式和第三类边界条件的分别（简答题）：对流传热微分方程式中表面对流传热系数$h$ 是未知的，但是第三类边界条件中是已经的；对流传热微分方程式中导热率是流体的，第三类边界条件中是固体的；对流传热微分方程式中温度梯度是流体的，第三类边界条件中式固体的
+对流传热微分方程组：
+连续性方程：二维常物性不可压缩流体稳态流动连续性方程$\frac{\partial u}{\partial x}&#43;\frac{\partial v}{\partial y}=0$
+动量微分方程式：描述流体速度场，分析微元体的动量守恒，又称纳维斯托克斯方程，大名鼎鼎的N-S方程：$\rho(\frac{\partial u}{\partial \tau}&#43;u \frac{\partial u}{\partial x}&#43;v \frac{\partial u}{\partial y})=X-\frac{\partial p}{\partial x}&#43;\mu (\frac{\partial^2 u}{\partial x^2}&#43;\frac{\partial^2u}{\partial y^2})$ 以及 $\rho(\frac{\partial v}{\partial \tau}&#43;u\frac{\partial v}{\partial x}&#43;v\frac{\partial v}{\partial y})=Y-\frac{\partial p}{\partial y}&#43;\mu(\frac{\partial^2 v}{\partial x^2}&#43;\frac{\partial^2 v}{\partial y^2})$
+能量微分方程，描述流体的温度场，由能量守恒守恒原理分析进出微元体的各项能量来建立 $\rho c_p (\frac{\partial t}{\partial \tau}&#43;u \frac{\partial t}{\partial x}&#43;v \frac{\partial t}{\partial y})=\lambda(\frac{\partial^2 t}{\partial x^2}&#43;\frac{\partial^2 t}{\partial y^2})$"><meta itemprop="datePublished" content="2023-02-11T21:31:56+08:00" />
 <meta itemprop="dateModified" content="2023-02-11T21:31:56+08:00" />
-<meta itemprop="wordCount" content="0">
+<meta itemprop="wordCount" content="214">
 <meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="handouts(4) - heat transfer"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="对流传热分析理论基础 影响对流传热的五大因素
+流动起因：温差引起的自然对流还是强制动力引起的受迫对流
+流体有无相变
+流动状态：粘性流体存在两种状态，分别是紊流和层流
+几何因素：形状、大小、光滑或粗糙、表面和流体之间的相对位置
+热物性质：流体物性随流体种类、温度、压力变化而变化，比如密度、导热率、比热容都会收到影响
+温度对黏度的影响：气体温度$T \uparrow$ 黏度增大，液体温度$T \uparrow$ 黏度减小，所以要根据定性温度选择经验公式中的参数
+典型对流传热类型： 见Appendix
+对流传热微分方程式：（图省略）$h_x = - \frac{\lambda}{\triangle t_x}(\frac{\partial t}{\partial y})|_{w,x}$
+此处仅限于不可压缩的牛顿流体
+物理描述：由于粘性作用，流体速度在近壁面处停滞，处于光滑移动状态，热量只能以导热方式通过很薄的边界层
+对流传热微分方程式和第三类边界条件的分别（简答题）：对流传热微分方程式中表面对流传热系数$h$ 是未知的，但是第三类边界条件中是已经的；对流传热微分方程式中导热率是流体的，第三类边界条件中是固体的；对流传热微分方程式中温度梯度是流体的，第三类边界条件中式固体的
+对流传热微分方程组：
+连续性方程：二维常物性不可压缩流体稳态流动连续性方程$\frac{\partial u}{\partial x}&#43;\frac{\partial v}{\partial y}=0$
+动量微分方程式：描述流体速度场，分析微元体的动量守恒，又称纳维斯托克斯方程，大名鼎鼎的N-S方程：$\rho(\frac{\partial u}{\partial \tau}&#43;u \frac{\partial u}{\partial x}&#43;v \frac{\partial u}{\partial y})=X-\frac{\partial p}{\partial x}&#43;\mu (\frac{\partial^2 u}{\partial x^2}&#43;\frac{\partial^2u}{\partial y^2})$ 以及 $\rho(\frac{\partial v}{\partial \tau}&#43;u\frac{\partial v}{\partial x}&#43;v\frac{\partial v}{\partial y})=Y-\frac{\partial p}{\partial y}&#43;\mu(\frac{\partial^2 v}{\partial x^2}&#43;\frac{\partial^2 v}{\partial y^2})$
+能量微分方程，描述流体的温度场，由能量守恒守恒原理分析进出微元体的各项能量来建立 $\rho c_p (\frac{\partial t}{\partial \tau}&#43;u \frac{\partial t}{\partial x}&#43;v \frac{\partial t}{\partial y})=\lambda(\frac{\partial^2 t}{\partial x^2}&#43;\frac{\partial^2 t}{\partial y^2})$"/>
 
   
   
@@ -151,6 +211,9 @@
 ></script>
 
 
+  
+  
+  <script async src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   
 </head>
 
@@ -283,7 +346,204 @@
     
   </header>
 
-  <section></section>
+  <section><h1 id="对流传热分析理论基础">对流传热分析理论基础</h1>
+<ol>
+<li>
+<p>影响对流传热的五大因素</p>
+<ol>
+<li>
+<p>流动起因：温差引起的自然对流还是强制动力引起的受迫对流</p>
+</li>
+<li>
+<p>流体有无相变</p>
+</li>
+<li>
+<p>流动状态：粘性流体存在两种状态，分别是紊流和层流</p>
+</li>
+<li>
+<p>几何因素：形状、大小、光滑或粗糙、表面和流体之间的相对位置</p>
+</li>
+<li>
+<p>热物性质：流体物性随流体种类、温度、压力变化而变化，比如密度、导热率、比热容都会收到影响</p>
+</li>
+</ol>
+</li>
+<li>
+<p>温度对黏度的影响：气体温度$T \uparrow$ 黏度增大，液体温度$T \uparrow$ 黏度减小，所以要<strong>根据定性温度选择经验公式中的参数</strong></p>
+</li>
+<li>
+<p>典型对流传热类型： 见<a href="#jump">Appendix</a></p>
+</li>
+<li>
+<p>对流传热微分<strong>方程式</strong>：（图省略）$h_x = - \frac{\lambda}{\triangle t_x}(\frac{\partial t}{\partial y})|_{w,x}$</p>
+<ol>
+<li>
+<p>此处仅限于不可压缩的牛顿流体</p>
+</li>
+<li>
+<p>物理描述：由于粘性作用，流体速度在近壁面处停滞，处于光滑移动状态，热量只能以导热方式通过很薄的边界层</p>
+</li>
+<li>
+<p><strong>对流传热微分方程式和第三类边界条件的分别</strong>（简答题）：对流传热微分方程式中表面对流传热系数$h$ 是未知的，但是第三类边界条件中是已经的；对流传热微分方程式中导热率是流体的，第三类边界条件中是固体的；对流传热微分方程式中温度梯度是流体的，第三类边界条件中式固体的</p>
+</li>
+</ol>
+</li>
+<li>
+<p>对流传热微分<strong>方程组</strong>：</p>
+<ol>
+<li>
+<p>连续性方程：二维常物性不可压缩流体稳态流动连续性方程$\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}=0$</p>
+</li>
+<li>
+<p>动量微分方程式：描述流体速度场，分析微元体的动量守恒，又称纳维斯托克斯方程，大名鼎鼎的N-S方程：$\rho(\frac{\partial u}{\partial \tau}+u \frac{\partial u}{\partial x}+v \frac{\partial u}{\partial y})=X-\frac{\partial p}{\partial x}+\mu (\frac{\partial^2 u}{\partial x^2}+\frac{\partial^2u}{\partial y^2})$ 以及 $\rho(\frac{\partial v}{\partial \tau}+u\frac{\partial v}{\partial x}+v\frac{\partial v}{\partial y})=Y-\frac{\partial p}{\partial y}+\mu(\frac{\partial^2 v}{\partial x^2}+\frac{\partial^2 v}{\partial y^2})$</p>
+</li>
+<li>
+<p>能量微分方程，描述流体的温度场，由能量守恒守恒原理分析进出微元体的各项能量来建立 $\rho c_p (\frac{\partial t}{\partial \tau}+u \frac{\partial t}{\partial x}+v \frac{\partial t}{\partial y})=\lambda(\frac{\partial^2 t}{\partial x^2}+\frac{\partial^2 t}{\partial y^2})$</p>
+</li>
+</ol>
+</li>
+<li>
+<p>数量级分析（19年考过简答题，内容摘自建工出版的传热学）</p>
+<ol>
+<li>
+<p>目的：应用传热学的基本原理对所研究的物理量进行估算，确定其数量范围</p>
+</li>
+<li>
+<p>法则：确定数量级分析的区域空间，任何方程中至少有两个数量级的主要控制项，两项之和中如果有其中一项远大于另一项，则数量级由主要的项决定，如果两项之和中加数的数量级相同，则和的数量级与各项相同</p>
+</li>
+</ol>
+</li>
+<li>
+<p>边界层的定义，边界层分为<strong>流动边界层和热边界层</strong></p>
+<ol>
+<li>
+<p>流动边界层：在壁面附近的流体有很大的速度梯度，因为粘滞力的作用，形成一层边界层，边界层外部速度几乎为零，$\frac{u}{u_\infty}=0.99$</p>
+</li>
+<li>
+<p>热边界层：在热边界层内有很大的温度梯度，温度梯度会发生很大的变化，而在热边界层外的主流区域中，温度基础趋于一致，温度边界层厚度用$\delta_t$ 表示，通常以$T_s - T=0.99(T_s - T_0)$ 来定义温度边界层的厚度，<strong>热边界层的厚度在平板上式不断发展壮大的，从层流到过渡区到紊流都是在不断扩大的</strong></p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>无量纲准则数的物理含义</strong>（必考简答题，计算题中也需要）</p>
+<ol>
+<li>
+<p>普朗克数$Pr=\frac{\nu}{a}$ 代表动量传递能力和热量传递能力之间的比值，当普朗克数越大，流动边界层<strong>相对</strong>增大，热边界层<strong>相对</strong>减小（和第7条联动，主要判断流动和热边界层的厚度）</p>
+</li>
+<li>
+<p>努谢尔数$Nu=\frac{hl}{\lambda}$ 表示无量纲过余温度梯度沿法线方向变化的大小，表示对于传热过程的强度，努谢尔数越大，传热的程度越强</p>
+</li>
+<li>
+<p>雷诺数$Re=\frac{ul}{\nu}$ 用来判断受迫情况下的紊流和层流的情况，用来表示惯性力和粘滞力之间的比值关系</p>
+</li>
+<li>
+<p>格拉晓夫数$Gr=\frac{g \triangle t \alpha l^3}{\nu^2}$ 表示浮升力和粘滞力之间的比值，可以用来判断自然对流传热过程中的层流和紊流关系</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>特征长度/特征温度如何选择</strong>（在不同类型的对流传热过程中）</p>
+<ol>
+<li>
+<p>外掠平板：特征温度$t_m = \frac{t_f + t_w}{2}$ 特征长度是<strong>平板的长度</strong></p>
+</li>
+<li>
+<p>管内受迫流动：特征温度是流体平均温度，特征长度是<strong>管内直径</strong></p>
+</li>
+<li>
+<p>外掠圆管：特征温度是主流流体的温度，特征长度取管外直径，速度取最大流速</p>
+</li>
+<li>
+<p>外掠管束：特征温度是平均流体的温度，特征长度取管外直径，速度取管排中最大流速</p>
+</li>
+</ol>
+</li>
+<li>
+<p>分散知识点1：不论流体性质如何，这里指物理性质如何，只要局部雷诺数相同，<strong>流动边界层</strong>厚度随$x$ 的变化是完全一致的</p>
+</li>
+<li>
+<p>分散知识点2：热边界层受雷诺数和普朗克数双重影响，如果普朗克数等于1，两个边界层的发展就完全一致（与知识点8-1联动）</p>
+</li>
+<li>
+<p>分散知识点3：<strong>短板效应</strong>：不是平板越长，平均传热系数越大，在平板始端，边界层很薄的发展阶段，那里的表面对流传热系数可能非常大</p>
+</li>
+<li>
+<p>动量和热量传递之间的类比</p>
+<ol>
+<li>
+<p>定义（简答题）：研究传热的实验条件不充分的情况下，可以利用流动的规律来研究传热现象，使用层流，紊流和过度流的流态中</p>
+</li>
+<li>
+<p>区别科尔朋类比和雷诺类比：<strong>普朗克数等于1的情况下，层流和紊流的两传类比方程组满足同一个方程，满足雷诺一层紊流结构，也就是说紊流边界层可以只有一层</strong> 这个是雷诺类比，科尔朋类比是在普朗克数不为1的情况下，<strong>紊流边界层不是一层，可以分为紊流核心层和层流底层和还有过渡层</strong></p>
+</li>
+<li>
+<p>斯坦登数：$St=\frac{Nu}{RePr}=\frac{h}{\rho c_p u_\infty}$ 表示传热品质的高低</p>
+</li>
+<li>
+<p>雷诺类比中 $St = \frac{C_f}{2},St_x=\frac{C_{fx}}{2}$</p>
+</li>
+<li>
+<p>科尔朋类比中$StPr^{2/3}=\frac{Nu}{RePr},St_xPr^{2/3}=\frac{C_{fx}}{2}$</p>
+</li>
+</ol>
+</li>
+<li>
+<p>相似理论</p>
+<ol>
+<li>
+<p>前提：几何相似，物理相似（只有同类物理现象才能谈相似，微分方程和单值性条件相似才能相似，也就是说管内流动传热和平板流动传热不能相似）</p>
+</li>
+<li>
+<p>描述现象的微分方程式的存在，使相同物理量之间的倍数有特定的制约关系，这种制约关系使相似原理的核心，注意物理量的时间性和空间性</p>
+</li>
+<li>
+<p>相似原理的性质：两个相似的物理现象，同名准则数必然相等</p>
+</li>
+<li>
+<p>相似准则数之间的关系：描述现象的微分表达这些准则数存在的函数关系，按照关联式内容整理数据可以反应现象物理变化规律</p>
+</li>
+<li>
+<p>在实验过程中：确定研究的物理现象，分析该现象需要测量那些物理量，得到数据后进行分析，尽量扩大该准则关系式的适用范围（这一块的经验公式是一定需要写使用范围的）</p>
+</li>
+<li>
+<p>数据处理分析：双对数或者是幂函数关系</p>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="appendix">Appendix</h1>
+<p><span id='jump'>典型对流传热类型</span>
+<div class="mermaid">
+  
+graph LR
+典型对流传热 --> 无相变
+典型对流传热 --> 含相变
+无相变 --> 受迫对流
+受迫对流 --> 内部流动
+受迫对流 --> 外部流动
+内部流动 --> 圆管内受迫
+内部流动 --> 非圆管内受迫
+外部流动 --> 外掠平板
+外部流动 --> 外掠单管
+外部流动 --> 外掠管束
+无相变 --> 自然对流
+自然对流 --> 无限空间对流
+自然对流 --> 有限空间对流
+无限空间对流 --> 竖壁竖管
+无限空间对流 --> 水平管
+无限空间对流 --> 水平壁面
+有限空间对流 --> 夹层
+无相变 --> 混合对流
+含相变 --> 凝结
+含相变 --> 沸腾
+凝结 --> 垂直壁面
+凝结 --> 水平单管或管束
+凝结 --> 管内
+沸腾 --> 大空间沸腾
+沸腾 --> 管内沸腾
+
+</div></p>
+</section>
 
   
   

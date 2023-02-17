@@ -13,7 +13,22 @@
       <pubDate>Sat, 11 Feb 2023 21:31:56 +0800</pubDate>
       
       <guid>https://carrybio.netlify.app/posts/blog4/</guid>
-      <description></description>
+      <description>对流传热分析理论基础 影响对流传热的五大因素
+流动起因：温差引起的自然对流还是强制动力引起的受迫对流
+流体有无相变
+流动状态：粘性流体存在两种状态，分别是紊流和层流
+几何因素：形状、大小、光滑或粗糙、表面和流体之间的相对位置
+热物性质：流体物性随流体种类、温度、压力变化而变化，比如密度、导热率、比热容都会收到影响
+温度对黏度的影响：气体温度$T \uparrow$ 黏度增大，液体温度$T \uparrow$ 黏度减小，所以要根据定性温度选择经验公式中的参数
+典型对流传热类型： 见Appendix
+对流传热微分方程式：（图省略）$h_x = - \frac{\lambda}{\triangle t_x}(\frac{\partial t}{\partial y})|_{w,x}$
+此处仅限于不可压缩的牛顿流体
+物理描述：由于粘性作用，流体速度在近壁面处停滞，处于光滑移动状态，热量只能以导热方式通过很薄的边界层
+对流传热微分方程式和第三类边界条件的分别（简答题）：对流传热微分方程式中表面对流传热系数$h$ 是未知的，但是第三类边界条件中是已经的；对流传热微分方程式中导热率是流体的，第三类边界条件中是固体的；对流传热微分方程式中温度梯度是流体的，第三类边界条件中式固体的
+对流传热微分方程组：
+连续性方程：二维常物性不可压缩流体稳态流动连续性方程$\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}=0$
+动量微分方程式：描述流体速度场，分析微元体的动量守恒，又称纳维斯托克斯方程，大名鼎鼎的N-S方程：$\rho(\frac{\partial u}{\partial \tau}+u \frac{\partial u}{\partial x}+v \frac{\partial u}{\partial y})=X-\frac{\partial p}{\partial x}+\mu (\frac{\partial^2 u}{\partial x^2}+\frac{\partial^2u}{\partial y^2})$ 以及 $\rho(\frac{\partial v}{\partial \tau}+u\frac{\partial v}{\partial x}+v\frac{\partial v}{\partial y})=Y-\frac{\partial p}{\partial y}+\mu(\frac{\partial^2 v}{\partial x^2}+\frac{\partial^2 v}{\partial y^2})$
+能量微分方程，描述流体的温度场，由能量守恒守恒原理分析进出微元体的各项能量来建立 $\rho c_p (\frac{\partial t}{\partial \tau}+u \frac{\partial t}{\partial x}+v \frac{\partial t}{\partial y})=\lambda(\frac{\partial^2 t}{\partial x^2}+\frac{\partial^2 t}{\partial y^2})$</description>
     </item>
     
     <item>
