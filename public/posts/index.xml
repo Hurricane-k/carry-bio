@@ -6,7 +6,35 @@
     <description>Recent content in Posts on Carry HE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 Feb 2023 11:22:18 +0800</lastBuildDate><atom:link href="https://carrybio.netlify.app/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Feb 2023 17:45:50 +0800</lastBuildDate><atom:link href="https://carrybio.netlify.app/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>handouts(6) - heat transfer</title>
+      <link>https://carrybio.netlify.app/posts/blog6/</link>
+      <pubDate>Sat, 18 Feb 2023 17:45:50 +0800</pubDate>
+      
+      <guid>https://carrybio.netlify.app/posts/blog6/</guid>
+      <description>辐射传热基本定律 辐射的本质和特点
+本质：发射辐射为各类物质固有特性，由于自身温度或者热运动的原因而激发产生的电磁波传播，成为热辐射
+特点：a）不依赖物质的接触也可以传播能量，不同热传导和热对流；b）辐射传热的过程伴随着能量形式的变化，能量会发生两次变化：热力学能转变为电磁波转变为热力学能；c）只要一切温度大于 0K 的物体，都是会不断向外发射热辐射射线的，不管各个物体温度变化情况如何，辐射传热的都不断的进行，只是最后呈现出来的结果是高温物体传到低温物体
+吸收/反射/穿透：$\alpha/\rho/\tau \rightarrow \alpha_{\lambda}/\rho_{\lambda}/\tau_{\lambda}$ （吸收率/反射率/穿透率），物体表面的特性对于物性的吸收和反射特性至关重要。固液的吸收/反射几乎都是表面进行的，气体的吸收辐射是在整个内部进行的
+纯气体的$\rho=0,\alpha + \tau=1$，对于纯气体来说，纯气体与固体或者液体的交界面存在的反射，我们可以认为是固体或者液体的反射，并不将此类现象归为是气体的反射
+固体/液体$\tau=0,\alpha + \rho=1$
+镜面反射：不平整尺寸小于投射辐射的波长，形成镜面反射
+漫反射：表面不平整尺寸大于投射辐射的波长，反射均匀分布各个方向
+几个重要概念：
+黑体：全部吸收外来的辐射
+简答题（2018）黑体模型为什么十分重要：带小孔的温度均匀的空腔就是可以认为是一个黑体模型，我们并不要求黑体空腔的材料是具有黑体特性的， 因为外来辐射从小孔进入空腔内部， 在空腔中经历了各种多次的吸收和反射，而每次经过一次吸收，辐射能按内壁吸收率便会减少一份，最终离开小孔的能量微乎其微，所以我们可以认为空腔已经全部吸收了外部投入到内部的辐射。只是说在其他条件不变的情况下，材料本身的吸收比越大，黑体模型的有效吸收比就会越高。作用：我们研究黑体之后，就可以用来参照研究实际物体的辐射，来确定相关的修正系数。
+白体：全部反射外来的辐射
+透明体：全部投射外来的辐射
+立体角： 以立体角的角端为中心，作一个半径为r的半球， 将半球表面上被立体角所切割的面积A除以半径的平方，及立体角的度量
+光谱吸收比：物体吸收某一特定波长的辐射能的百分比称之为光谱吸收比
+定向辐射强度：在单位时间内，在单位可见辐射面积下， 在给定的某个方向上的单位立体角内， 全部波长辐射的能量作为定向辐射强度，单位$W/(m^2\cdot sr)$，计算公式$I_{\theta}=\frac{d^2 \phi(\theta,\beta)}{d \omega dAcos\theta}$
+光谱定向辐射强度：在单位时间内，在单位可见辐射面积下， 在给定的某个方向上的单位立体角内， 给定的波长的单位波长辐射的能量作为光谱定向辐射强度，单位$W/(m^2\cdot sr \cdot \mu m)$ ，计算公式$I_{\theta}=\frac{d^2 \phi(\theta,\beta)}{d \omega dAcos\theta d \lambda}$
+辐射力：在单位时间内，在单位辐射面积下， 在向整个半球空间内， 全部波长辐射的能量作为辐射力。单位$W/m^2$ 。
+定向辐射力：在单位时间内，在单位辐射面积下， 在给定的某个方向上的单位立体角内，全部波长辐射的能量作为定向辐射力。单位$W/(m^2\cdot sr)$ ，计算公式$I_{\theta}=\frac{d^2 \phi(\theta,\beta)}{d \omega dA}$
+光谱辐射力：在单位时间内，在单位辐射面积下， 在整个半球空间内， 给定的波长的单位波长辐射的能量作为光谱辐射力，单位$W/(m^2 \cdot \mu m)$ ，计算公式$I_{\theta}=\frac{d^2 \phi(\theta,\beta)}{dAcos\theta d \lambda}$</description>
+    </item>
+    
     <item>
       <title>handouts(5) - heat transfer</title>
       <link>https://carrybio.netlify.app/posts/blog5/</link>
