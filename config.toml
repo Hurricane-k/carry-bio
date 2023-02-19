@@ -9,6 +9,8 @@ enableInlineShortcodes = true
 # See https://github.com/gohugoio/hugo/issues/7228#issuecomment-714490456
 ignoreErrors = ["error-remote-getjson"]
 
+paginate = 5
+
 [params]
   color = 'wheat'
 
