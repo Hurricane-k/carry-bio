@@ -79,7 +79,7 @@ The above flowchart shows all the **toolkits** I used in this auto-zoning.
   
 4. Python: Compared with other languages, Python development communtiy provides some third-party packages to support .idf format files, which will facilitate the procedure.
   
-5. Eppy: The first time I found this package, I was really excited. That is a wonderful bridge between EnergyPlus and Python. EnergyPlus has built-in Python API though, but I never use it. I prefer using Eppy. You can go to the website to see this powerful tool (link in reference).
+5. Eppy: The first time I found this package, I was really excited. That is a wonderful bridge between EnergyPlus and Python. EnergyPlus has built-in Python API though, but I never use it. I prefer using Eppy. You can go to the [official website](https://eppy.readthedocs.io/en/latest/Main_Tutorial.html) to appreciate its power.
   
 
 # Additional Illustration
@@ -92,7 +92,7 @@ The above flowchart shows all the **toolkits** I used in this auto-zoning.
 
 <div align=center><img src="blog9-fig2.png" width="500"></div>
 
-3. Next I will use example to show you what's a `.idf` format file. In `.idf` file, every space is simplified as geometry. You can get every surface infomation in `.idf` file. For example, **next code block** is the description of a surface, you can which space it belongs to, it is wall, or floor, or root, or ceiling. it is exterior or interior. That is really wonderful for us to achive our goal.
+3. Next I will use example to show you what's a `.idf` format file. In `.idf` file, every space is simplified as geometry. You can get every surface infomation in `.idf` file. For example, **next code block** is the description of a surface, you can which space it belongs to, it is wall, or floor, or root, or ceiling. it is exterior or interior. That is really wonderful for us to achive our goal. You can move to [official documentations](https://energyplus.net/documentation) to see more details.
 
 ```
 BuildingSurface:Detailed ,Zn005:Wall005 , !- Base Surface Name
