@@ -6,22 +6,23 @@ mermaid: true
 author: Carry HE
 ---
 
+<div align=center><img src="blog9-index.jpg"></div>
 
-# background
+# Background
 
-## why need to zone construction for smoke control, is it necessary?
+## Why need to zone construction for smoke control? Is it necessary?
 
 Proactive restriction on smoke diffusion plays an significant role in increasing occupant evacuation time. Regardless in U.S or China, relevant construction codes require almost public buildings to establish effective smoke control system in case of emergency. Active smoke exhaust and pressurisation systems are complex and under strict supversion.
 
 Generally, in China, the construction smoke control system can be divided into two parts: **Zone pressurisation system** for stairwell (emergency exits), and **Smoking exhausting system** for fire affected zones. **Zoning construction** for smoke-control is necessary for **layout of Smoke exhausting system**, whose goals is to <u>passive separation between fire affected zones and non-fire affected zones</u>. It can slow down the smoke diffusion to increase the chance of surivival.
 
-## how to utilise BIM to auto-zone?
+## How to utilise BIM to auto-zone?
 
 Building Information Model (BIM) give us a shot to liberate engineers from trivial things. It is considered to be a standard data structute designed for construction industry. Among the known examples are **IFC** and **gbXML**. If you are familiar with Building Energy Simulation programs, including **EnergyPlus** and **DeST**, these programs have built-in data file to record bulding information. No matter what data file you choose, theoritically, the construction geometry and basic layout information can faciliate zoning constuction automatically. Last but not least, your code have to comply with the relevant construction code.
 
 # General Workflow
 
-The next part is based on the China's construction code, inlduing GB-51251-2017 and ect.. *This is not a technical report, so the technical details are not be disclosed*. You can draw inspiration from this article to achieve your goal.
+The next part is based on the China's construction code, inlduing GB-51251-2017 and ect.. *This is not a technical report, so the technical details are not disclosed*. You can draw inspiration from this article to achieve your goal.
 
 {{<mermaid>}}
 flowchart TB
@@ -39,7 +40,7 @@ I --> J{{"Done (next: design smoke exhausting systems)"}}
 {{</mermaid>}}
 &nbsp;
 
-# Steps in workflow
+# Steps in Workflow
 
 1. **Three kinds** of information need to be extracted from **BIM**. For example. The idf format file, supported by EnergyPlus, can provide us with the **geometry, layout and use information**, which is enough as foundation.
   
@@ -62,13 +63,13 @@ An brief introduction of example will be shown here to guide some guys who are r
 flowchart LR
 A([OpenStudio]) -->|software| C["convert to .idf file"]
 B([SketchUp]) -->|Plug-in| C["convert to .idf file"]
-C -->|visualization| D([EnergyPlus])
+C -->|check| D([EnergyPlus])
 D --> E([Python])
-F([eppy]) -->|third-party package| G{{auto-zone for smoke control}}
+F([eppy]) -->|package| G{{auto-zone for smoke control}}
 E -->|coding| G
 {{</mermaid>}}
 
-The above flowchart shows all the toolkits I use in this auto-zoning.
+The above flowchart shows all the **toolkits** I used in this auto-zoning.
 
 1. SketchUp: you might be really familiar with this software if your major is architecture design. This software can visualize the dream construction in your head. but in this work, we need to use another Plug-in to build a 3D-model that can be identified by EnergyPlus.
   
@@ -81,17 +82,17 @@ The above flowchart shows all the toolkits I use in this auto-zoning.
 5. Eppy: The first time I found this package, I was really excited. That is a wonderful bridge between EnergyPlus and Python. EnergyPlus has built-in Python API though, but I never use it. I prefer using Eppy. You can go to the website to see this powerful tool (link in reference).
   
 
-# Addictive illustration
+# Additional illustration
 
-This picture shows the floorplan of a building that I use as a case. the first step is to convert this floorplan to .idf files.
+1. This picture shows the floorplan of a building that I use as a case. the first step is to convert this floorplan to `.idf` files. We have already known **the use, shape and area of every space**.
 
-![origin floorplan](blog9-fig1.png)
+<div align=center><img src="blog9-fig1.png" width="500"></div>
 
-The next picture is visulationzation of geometry infomation in `.idf` format file. This visualization is supported by `Matplotlib`.
+2. The next picture is visulationzation of geometry infomation in `.idf` format file. This visualization is supported by `Matplotlib`.
 
 <div align=center><img src="blog9-fig2.png" width="500"></div>
 
-Next I will use example to show you what's a `.idf` format file. In `.idf` file, every space is simplified as geometry. You can get every surface infomation in `.idf` file. For example, next code block is the description of a surface, you can which space it belongs to, it is wall, or floor, or root, or ceiling. it is exterior or interior. That is really wonderful for us to achive our goal.
+3. Next I will use example to show you what's a `.idf` format file. In `.idf` file, every space is simplified as geometry. You can get every surface infomation in `.idf` file. For example, **next code block** is the description of a surface, you can which space it belongs to, it is wall, or floor, or root, or ceiling. it is exterior or interior. That is really wonderful for us to achive our goal.
 
 ```
 BuildingSurface:Detailed ,Zn005:Wall005 , !- Base Surface Name
@@ -108,11 +109,11 @@ NoWind , !- Wind Exposure
 67.90000 , 47.79000 , 10.00000 ;
 ```
 
-Last I will show you the result, different colorful blocks means different zones for smoke control, (P.S. the whole floor belongs to the same zone for fire safety), you can see that the corride 3 has been divided into two zones for smoke-control, because it is really elongated. The relevant code requires that. This result is the foundation of designing smoke exhausting systems.
+4. Last I will show you the result, different colorful blocks means different zones for smoke control, (P.S. the whole floor belongs to the same zone for fire safety), **you can see that the Corride 3 has been divided into two zones for smoke-control**, because it is really elongated. The relevant code requires that. Further designers will seperate **Corridor 3** with **fire curtains**. This result is the foundation of designing smoke exhausting systems.
 
 <div align=center><img src="blog9-fig3.png" width="500"></div>
 
-**wellcome to cite the relevant patent:**
+5. **wellcome to cite the relevant patent:**, if you are really interested in this blog, or get some inspiration from this, or have some questions, don't hesitate to contact me. You can click the upper-right GitHub icon.
 
 ```
 %0 Patent
@@ -126,7 +127,12 @@ PageCount 11
 %W CNKI
 ```
 
-## Reference
+# Acknoeledge
+1. The first picture cited at the beginning is from [Unsplash.com](https://unsplash.com/) and Photographer [*Bernard Hermant*](https://unsplash.com/@bernardhermant)
+
+2. This work is one part of a larger project about Auto-Design for HVAC System of Public Buildings. The inital floorplan here is one of the test models for this lager project.
+
+# Reference
 
 1. [Understanding Smoke Control in Building](https://sourceable.net/understanding-smoke-control-in-buildings/)
   
