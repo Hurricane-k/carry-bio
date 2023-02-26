@@ -82,7 +82,7 @@ The above flowchart shows all the **toolkits** I used in this auto-zoning.
 5. Eppy: The first time I found this package, I was really excited. That is a wonderful bridge between EnergyPlus and Python. EnergyPlus has built-in Python API though, but I never use it. I prefer using Eppy. You can go to the website to see this powerful tool (link in reference).
   
 
-# Additional illustration
+# Additional Illustration
 
 1. This picture shows the floorplan of a building that I use as a case. the first step is to convert this floorplan to `.idf` files. We have already known **the use, shape and area of every space**.
 
@@ -127,7 +127,7 @@ PageCount 11
 %W CNKI
 ```
 
-# Acknoeledge
+# Acknowledge
 1. The first picture cited at the beginning is from [Unsplash.com](https://unsplash.com/) and Photographer [*Bernard Hermant*](https://unsplash.com/@bernardhermant)
 
 2. This work is one part of a larger project about Auto-Design for HVAC System of Public Buildings. The inital floorplan here is one of the test models for this lager project.
