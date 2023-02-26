@@ -121,7 +121,7 @@ Generally, in China, the construction smoke control system can be divided into t
 <meta itemprop="description" content="Background Why need to zone construction for smoke control? Is it necessary? Proactive restriction on smoke diffusion plays an significant role in increasing occupant evacuation time. Regardless in U.S or China, relevant construction codes require almost public buildings to establish effective smoke control system in case of emergency. Active smoke exhaust and pressurisation systems are complex and under strict supversion.
 Generally, in China, the construction smoke control system can be divided into two parts: Zone pressurisation system for stairwell (emergency exits), and Smoking exhausting system for fire affected zones."><meta itemprop="datePublished" content="2023-02-25T20:00:55+08:00" />
 <meta itemprop="dateModified" content="2023-02-25T20:00:55+08:00" />
-<meta itemprop="wordCount" content="1354">
+<meta itemprop="wordCount" content="1356">
 <meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary"/>
@@ -277,7 +277,7 @@ Generally, in China, the construction smoke control system can be divided into t
 <h2 id="how-to-utilise-bim-to-auto-zone">How to utilise BIM to auto-zone?</h2>
 <p>Building Information Model (BIM) give us a shot to liberate engineers from trivial things. It is considered to be a standard data structute designed for construction industry. Among the known examples are <strong>IFC</strong> and <strong>gbXML</strong>. If you are familiar with Building Energy Simulation programs, including <strong>EnergyPlus</strong> and <strong>DeST</strong>, these programs have built-in data file to record bulding information. No matter what data file you choose, theoritically, the construction geometry and basic layout information can faciliate zoning constuction automatically. Last but not least, your code have to comply with the relevant construction code.</p>
 <h1 id="general-workflow">General Workflow</h1>
-<p>The next part is based on the China&rsquo;s construction code, inlduing GB-51251-2017 and ect.. <em>This is not a technical report, so the technical details are not disclosed</em>. You can draw inspiration from this article to achieve your goal.</p>
+<p>The next part is based on the China&rsquo;s construction code, inlduing GB-51251-2017 and ect.. <em>This is not a technical report, so the technical details are not disclosed</em>. Hope you can draw inspiration from this article to achieve your goal.</p>
 <p><div class="mermaid">
   
 flowchart TB
@@ -298,7 +298,7 @@ I --> J{{"Done (next: design smoke exhausting systems)"}}
 <h1 id="steps-in-workflow">Steps in Workflow</h1>
 <ol>
 <li>
-<p><strong>Three kinds</strong> of information need to be extracted from <strong>BIM</strong>. For example. The idf format file, supported by EnergyPlus, can provide us with the <strong>geometry, layout and use information</strong>, which is enough as foundation.</p>
+<p>Three kinds of information need to be extracted from <strong>BIM</strong>. For example. The idf format file, supported by EnergyPlus, can provide us with the <strong>geometry, layout and use information</strong>, which is enough as foundation.</p>
 </li>
 <li>
 <p>Equally important is <strong>some prior limits</strong> in relevant construction code. Set China&rsquo;s code as an example, before this zoning, another zoning for fire safety is necessary. The details is that every zone for smoke control cannot cross zones for fire safety. according the above limits, the information about zones for fire safety cannot be ignored.</p>
@@ -307,13 +307,13 @@ I --> J{{"Done (next: design smoke exhausting systems)"}}
 <p>The first judement means that zoning for <em>smoke control is not necessary for all spaces</em>. For exampe. stairwells do not belong to this. so this exclusion can help us know the range that needs to be zoned for smoke control.</p>
 </li>
 <li>
-<p><strong>Checking geometry and use for every space is core</strong>. Generally architects will give difference spaces different uses. For example. Space 1 is for conference, and Space 2 is for lobby, When it comes to zoning for smoke control, Space 1 and 2 need to follow different criteria.</p>
+<p><strong>Checking geometry and use for every space is core</strong>. Generally architects will give difference spaces different uses. For example. <strong>Space 1 is for conference, and Space 2</strong> is for lobby, When it comes to zoning for smoke control, <strong>Space 1 and 2</strong> need to follow different criteria.</p>
 </li>
 <li>
-<p>:dart: If a space is really small or have exterior window, it might belong to a zone for smoke control. However, if a space is really large and not connected with outdoor (by window or door), it is necessray to divide it into several zones for some control, which means more than one exhuastion fan will be installed for safety.</p>
+<p>🎯 If a space is really small or have exterior window, it might belong to a zone for smoke control. However, if a space is really large and not connected with outdoor (by window or door), it is necessray to divide it into several zones for some control, which means more than one exhuastion fan will be installed for safety.</p>
 </li>
 <li>
-<p>About how to divide one large into several subspace, that is a mathematic problem mixed with engineering situations. that is not our focus here.</p>
+<p>About how to divide one large into several subspace. That is a mathematic problem mixed with engineering situations. that is not our focus here.</p>
 </li>
 </ol>
 <h1 id="example">Example</h1>
@@ -332,19 +332,19 @@ E -->|coding| G
 <p>The above flowchart shows all the <strong>toolkits</strong> I used in this auto-zoning.</p>
 <ol>
 <li>
-<p>SketchUp: you might be really familiar with this software if your major is architecture design. This software can visualize the dream construction in your head. but in this work, we need to use another Plug-in to build a 3D-model that can be identified by EnergyPlus.</p>
+<p><strong>SketchUp</strong>: you might be really familiar with this software if your major is architecture design. This software can visualize the dream construction in your head. but in this work, we need to use another Plug-in to build a 3D-model that can be identified by EnergyPlus.</p>
 </li>
 <li>
-<p>OpenStudio: this is an open-source platform. The earlier version is the SketchUp Plug-in, but the lastet version is more like a platform. You can do a lot related to building energy consumption on this platform. You can use <code>&lt; 3.0.0</code> version of OpenStudio in SketchUp.</p>
+<p><strong>OpenStudio</strong>: this is an open-source platform. The earlier version is the SketchUp Plug-in, but the lastet version is more like a platform. You can do a lot related to building energy consumption on this platform. You can use <code>&lt; 3.0.0</code> version of OpenStudio in SketchUp.</p>
 </li>
 <li>
-<p>EnergyPlus: In Windows, EnergyPlus has interface to check and modify your .idf format file (you can get .idf format file with help of OpenStudio Plug-in in SketchUp). If you are new to EnergyPlus, that will be user-friendly. Or you can use other editor to open it, which is really easy for veterans.</p>
+<p><strong>EnergyPlus</strong>: In Windows, EnergyPlus has interface to check and modify your .idf format file (you can get <code>.idf</code> format file with help of OpenStudio Plug-in in SketchUp). If you are new to EnergyPlus, that will be user-friendly. Or you can use other editor to open it, which is really easy for veterans.</p>
 </li>
 <li>
-<p>Python: Compared with other languages, Python development communtiy provides some third-party packages to support .idf format files, which will facilitate the procedure.</p>
+<p><strong>Python</strong>: Compared with other languages, Python development communtiy provides some third-party packages to support .idf format files, which will facilitate the procedure.</p>
 </li>
 <li>
-<p>Eppy: The first time I found this package, I was really excited. That is a wonderful bridge between EnergyPlus and Python. EnergyPlus has built-in Python API though, but I never use it. I prefer using Eppy. You can go to the <a href="https://eppy.readthedocs.io/en/latest/Main_Tutorial.html">official website</a> to appreciate its power.</p>
+<p><strong>Eppy</strong>: The first time I found this package, I was really excited. That is a wonderful bridge between EnergyPlus and Python. EnergyPlus has built-in Python API though, but I never use it. I prefer using Eppy. You can go to the <a href="https://eppy.readthedocs.io/en/latest/Main_Tutorial.html">official website</a> to appreciate its power.</p>
 </li>
 </ol>
 <h1 id="additional-illustration">Additional Illustration</h1>
@@ -357,7 +357,7 @@ E -->|coding| G
 </ol>
 <div align=center><img src="blog9-fig2.png" width="500"></div>
 <ol start="3">
-<li>Next I will use example to show you what&rsquo;s a <code>.idf</code> format file. In <code>.idf</code> file, every space is simplified as geometry. You can get every surface infomation in <code>.idf</code> file. For example, <strong>next code block</strong> is the description of a surface, you can which space it belongs to, it is wall, or floor, or root, or ceiling. it is exterior or interior. That is really wonderful for us to achive our goal. You can move to <a href="https://energyplus.net/documentation">official documentations</a> to see more details.</li>
+<li>Next I will use an example to show you what&rsquo;s a <code>.idf</code> format file. In <code>.idf</code> file, every space is simplified as geometry. You can get every surface infomation in <code>.idf</code> file. For example, <strong>next code block</strong> is the description of a surface, you can which space it belongs to, it is wall, or floor, or root, or ceiling. it is exterior or interior. That is really wonderful for us to achive our goal. You can move to <a href="https://energyplus.net/documentation">official documentations</a> to see more details.</li>
 </ol>
 <pre tabindex="0"><code>BuildingSurface:Detailed ,Zn005:Wall005 , !- Base Surface Name
 Wall,INTERIOR , !- Class and Construction Name
