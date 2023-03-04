@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready text-sm lg:text-base"
+  style="--bg: #f1efe1"
+  lang="en-us"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>A General Outline of the Automatic Hydraulic Calculation for Centralized Air Distribution System - Carry HE</title>
+
+  
+  <meta name="theme-color" />
+  
+  <meta name="description" content="Background Air distribution plays an important role in human thermal comfort in built environment. HVAC (Heating, Ventilation, Air-Conditioning, and Cooling) sytems are the core to ensure it. Compared with nominal capacity of core equipment, Terminal air distribution system seems not to get enough attention, especailly when it comes to BIM (Building Information Model) era.
+BIM facilitates the automation in construntion, but there is a long way to go. For example, Construction Drawing Standard needs to be recieved and embraced widely, which can help the ducting generation of centralized air distribution system." />
+  <meta
+    name="author"
+    content="Carry HE"
+  />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://carrybio.netlify.app/main.min.css" />
+
+  
+  <script
+    defer
+    src="https://carrybio.netlify.app/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+   
+  <link rel="preload" as="image" href="https://carrybio.netlify.app/theme.png" />
+
+  
+  
+  
+  <link rel="preload" as="image" href="https://avatars.githubusercontent.com/u/56281608?v=4" />
+  
+  
+
+  
+  <link rel="preload" as="image" href="https://carrybio.netlify.app/github.svg" />
+  
+
+  
+  <link rel="icon" href="https://carrybio.netlify.app/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://carrybio.netlify.app/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.110.0">
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="A General Outline of the Automatic Hydraulic Calculation for Centralized Air Distribution System" />
+<meta property="og:description" content="Background Air distribution plays an important role in human thermal comfort in built environment. HVAC (Heating, Ventilation, Air-Conditioning, and Cooling) sytems are the core to ensure it. Compared with nominal capacity of core equipment, Terminal air distribution system seems not to get enough attention, especailly when it comes to BIM (Building Information Model) era.
+BIM facilitates the automation in construntion, but there is a long way to go. For example, Construction Drawing Standard needs to be recieved and embraced widely, which can help the ducting generation of centralized air distribution system." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://carrybio.netlify.app/posts/blog10/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-03-04T18:55:42+08:00" />
+<meta property="article:modified_time" content="2023-03-04T18:55:42+08:00" />
+
+  
+  <meta itemprop="name" content="A General Outline of the Automatic Hydraulic Calculation for Centralized Air Distribution System">
+<meta itemprop="description" content="Background Air distribution plays an important role in human thermal comfort in built environment. HVAC (Heating, Ventilation, Air-Conditioning, and Cooling) sytems are the core to ensure it. Compared with nominal capacity of core equipment, Terminal air distribution system seems not to get enough attention, especailly when it comes to BIM (Building Information Model) era.
+BIM facilitates the automation in construntion, but there is a long way to go. For example, Construction Drawing Standard needs to be recieved and embraced widely, which can help the ducting generation of centralized air distribution system."><meta itemprop="datePublished" content="2023-03-04T18:55:42+08:00" />
+<meta itemprop="dateModified" content="2023-03-04T18:55:42+08:00" />
+<meta itemprop="wordCount" content="915">
+<meta itemprop="keywords" content="" />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="A General Outline of the Automatic Hydraulic Calculation for Centralized Air Distribution System"/>
+<meta name="twitter:description" content="Background Air distribution plays an important role in human thermal comfort in built environment. HVAC (Heating, Ventilation, Air-Conditioning, and Cooling) sytems are the core to ensure it. Compared with nominal capacity of core equipment, Terminal air distribution system seems not to get enough attention, especailly when it comes to BIM (Building Information Model) era.
+BIM facilitates the automation in construntion, but there is a long way to go. For example, Construction Drawing Standard needs to be recieved and embraced widely, which can help the ducting generation of centralized air distribution system."/>
+
+  
+  
+
+  
+
+  
+  
+  <script async src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold"
+      href="https://carrybio.netlify.app/"
+      >Carry HE</a
+    >
+    <a
+      class="btn-dark ml-6 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+    ></a>
+  </div>
+
+  <a
+    class="btn-menu relative z-50 -mr-8 flex h-[5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+  ></a>
+
+  
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = `"#f1efe1"`.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >About</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/posts/"
+        >Posts</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/publications/"
+        >Publications</a
+      >
+      
+    </nav>
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:mt-0 lg:ml-12 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href=" https://github.com/Hurricane-k "
+        target="_blank"
+      ></a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-10rem)] max-w-3xl px-8 pt-20 pb-32 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-20">
+    <h1 class="!my-0 pb-2.5">A General Outline of the Automatic Hydraulic Calculation for Centralized Air Distribution System</h1>
+
+    
+    <div class="text-sm opacity-60">
+      
+      <time>Mar 4, 2023</time>
+      
+      
+      <span class="mx-1">&middot;</span>
+      <span>Carry HE</span>
+      
+    </div>
+    
+  </header>
+
+  <section><h1 id="background">Background</h1>
+<p>Air distribution plays an important role in human thermal comfort in built environment. HVAC (Heating, Ventilation, Air-Conditioning, and Cooling) sytems are the core to ensure it. Compared with nominal capacity of core equipment, Terminal air distribution system seems not to get enough attention, especailly when it comes to BIM (Building Information Model) era.</p>
+<p>BIM facilitates the automation in construntion, but there is a long way to go. For example, Construction Drawing Standard needs to be recieved and embraced widely, which can help the <em><strong>ducting generation</strong></em> of centralized air distribution system. <em><strong>Identifying the geometry and use of every space is indispensible in the ducting generation</strong></em>. It is not uncommon to hear that the ducting generation is labor-intensive, which means that the increasing powerful machine can liberate engineers from the &ldquo;trivial&rdquo; and boring work. <em><strong>But the ducting generation is the foundation of the automatic hydraulic calculation</strong></em>. so what&rsquo;s our current difficulties?</p>
+<p><div class="mermaid">
+  
+graph LR
+A[previous 2D drawing] --> B[automated BIM generation]
+B --> C[automated ducting generation]
+C --> D[automated hydraulic calculation]
+
+</div>
+ </p>
+<h1 id="bottleneck">Bottleneck</h1>
+<p>The potential of soft- and hard-ware firstly shines through Computer Vision(CV) and Nautre Language Process(NLP) . one of reasons we cannot ingore is data collection: the tremendous amount of textual and visional data. Back to the construction industry, it is really <em><strong>hard and time-consuming to put all data in hand into some well-developed data structure</strong></em>, including IFC<sup>[1]</sup> and gbXML<sup>[2]</sup>.</p>
+<p>Automated 3D model creation (for example, a quasi-automated BIM methodology) has been researched and bullet points have been extracted, like line-text extraction<sup>[3]</sup>, which establishes the solid foundation of the ducting generation. However, The tendency of automated ducting generation has not come yet, at least in the construction industry. Let&rsquo;s wait and see.</p>
+<h1 id="how-to-automate-hydraulic-calculation">How to Automate Hydraulic Calculation</h1>
+<h2 id="an-abstract-routing">an Abstract routing</h2>
+<p>Given that we get the abstract routing in hands, which results from the automated ducting generation. Generally <strong>an abstract routing consists a bunch of straight lines as the axis of every straight tube, and they interact with 90-degree corners</strong>. Like the following graphic, the orange point usually is located at one of the building chiller plants. blue points show tranches from this point. Green points provide air for users.</p>
+<div align=center><img src="blog10-ducting.jpg" width="500"></div>
+<h2 id="data-structure-of-an-abstract-routing">Data Structure of an Abstract Routing</h2>
+<p>NetworkX is a good choice for someone who&rsquo;s new to this field. Abstract routing is a path search problem. By the way, if you are interested in Automated Ducting Generation. <a href="https://en.wikipedia.org/wiki/A*_search_algorithm">A* search algorithm</a> and <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra&rsquo;s algorithm</a> are classic methods.</p>
+<p>Let&rsquo;s go back to the Data Structure. Recommend reading the <a href="https://networkx.org/documentation/latest/tutorial.html">NetworkX tutorial</a>. The NetworkX built-in Data Structure <code>graph</code> is a good candidate to save abstract ducting. You can customize the attributes of <code>edge</code> and <code>node</code>. For instance, <code>location</code> can be added in <code>node</code>, and <code>weight</code> can be added in <code>node</code> as Euclid distance. By the way, <code>location</code> can be 2D or 3D coordinates. <strong>This step is to program the above graphics</strong>, which is the foundation of the next Hydraulic Calculation.</p>
+<h2 id="hydraulic-calculation">Hydraulic Calculation</h2>
+<ol>
+<li>
+<p><strong>sizing (Duct)</strong>: one of the goals is to determine the size and shape of every duct. You need to consult the <strong>relevant national construction codes</strong> (RNCCs), whether the shape is round or rectangular. This step involves data in BIM.</p>
+</li>
+<li>
+<p><strong>sizing (Duct Connectors &amp; Transitions)</strong>: You must notice the blue points in the above graphics. RNCCs will tell you how to size.</p>
+</li>
+<li>
+<p><strong>sizing (Duct Reducers &amp; Boots)</strong>: We need to convert abstract ducting into physical air distribution systems, so every <code>edge</code> has a certain amount of air volume. RNCCs require the upper and lower limit of air velocity, which means too long <code>edge</code> might be unable to reach the mandatory, and it should be cut off into two <code>edges</code>.</p>
+</li>
+<li>
+<p><strong>sizing (Valves)</strong>: The abstract ducting might not consider the valve installation. For sake of hydronic balance, some valves are necessary. In air distribution systems, <code>edges</code> will be classified into the main duct, branch, etc, which is based on the location. You can go through RNCCs to judge. If it is necessary, you can add the categories to attributes, which helps you to add valves. Theoretically, one <code>edge</code> is cut off into two <code>edges</code>, and the new <code>node</code> represents.</p>
+</li>
+<li>
+<p><strong>check (hydronic balance)</strong>: Our ultimate goal is to ensure that the practical air volume is equal to the theoretical air volume. According to the shortest path to every leaf node, you can calculate the resistance of every patch to check. The feedback can guide you on how to modify sizing. Under some circumstances, the abstract ducting needs to be improved, for example, the size of <strong>the Duct Accessary</strong> (Reducers, Transits, Reducers &amp; Boots) will squeeze the space of the duct. The iteration between Hydraulic Calculation and Automated Ducting Generation is necessary.</p>
+</li>
+</ol>
+<div align=center><img src="blog10-cutoff.jpg" width="500"></div>
+<h1 id="conclusion">Conclusion</h1>
+<p><div class="mermaid">
+  
+graph TB
+A[collection data] -.-> B[Abstract Routing]
+A -.-> C[BIM]
+B & C -.-> BC[combination] 
+BC -.-> DEF[sizing]
+DEF -.-> D["sizing(Duct)"]
+DEF -.-> E["sizing(Duct Connectors & Transits)"]
+DEF -.-> F["sizing(Duct Reducers & Boots)"]
+D & E & F -.-> G["check(hydronic balance)"]
+G -.-> H{"balance?"}
+H -.->|Y| I[Done]
+H -.->|N| J[Modify]
+J ==> DEF
+J ==>|iteration| B
+
+</div>
+ </p>
+<h1 id="acknowledge">Acknowledge</h1>
+<ol>
+<li>This work is one part of a larger project about Auto-Design for HVAC System of Public Buildings. The inital floorplan here is one of the test models for this lager project.</li>
+</ol>
+<h1 id="reference">Reference</h1>
+<ol>
+<li>
+<p><a href="https://github.com/Autodesk/revit-ifc">GitHub - Autodesk/revit-ifc: IFC for Revit and Navisworks (2019+)</a></p>
+</li>
+<li>
+<p><a href="https://www.gbxml.org/">Homepage | gbXML</a></p>
+</li>
+<li>
+<p>Shilin Wu, Yan Wang, Huayu Yang, Pingfeng Wang. (2022) Improved Faster R-CNN for the Detection Method of Industrial Control Logic Graph Recognition. <em>Frontiers in Bioengineering and Biotechnology</em> 10.</p>
+</li>
+<li>
+<p><a href="https://networkx.org/documentation/latest/tutorial.html">NetworkX tutorial &amp; documentation</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/A*_search_algorithm">A* search algorithm - Wikipedia</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra&rsquo;s algorithm - Wikipedia</a></p>
+</li>
+</ol>
+</section>
+
+  
+  
+
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 no-underline hover:bg-black/[2%]"
+      href="https://carrybio.netlify.app/posts/blog9/"
+      ><span>How to Auto-Zone Construction for Smoke-Control</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+
+  
+  
+
+  
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2023
+    <a class="link" href="https://carrybio.netlify.app/">Carry HE</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+
+</footer>
+
+  </body>
+</html>
