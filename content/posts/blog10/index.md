@@ -6,6 +6,7 @@ mermaid: true
 author: Carry HE
 ---
 
+<div align=center><img src="blog10-cover.jpg"></div>
 
 # Background
 
@@ -77,6 +78,9 @@ J ==>|iteration| B
 
 # Acknowledge
 1. This work is one part of a larger project about Auto-Design for HVAC System of Public Buildings. The inital floorplan here is one of the test models for this lager project.
+
+2. The first picture cited at the beginning is from [Unsplash.com](https://unsplash.com/) and Photographer [*Sigmund*](https://unsplash.com/@sigmund)
+
 
 # Reference
 
