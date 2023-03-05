@@ -121,7 +121,7 @@ BIM facilitates the automation in construntion, but there is a long way to go. F
 <meta itemprop="description" content="Background Air distribution plays an important role in human thermal comfort in built environment. HVAC (Heating, Ventilation, Air-Conditioning, and Cooling) sytems are the core to ensure it. Compared with nominal capacity of core equipment, Terminal air distribution system seems not to get enough attention, especailly when it comes to BIM (Building Information Model) era.
 BIM facilitates the automation in construntion, but there is a long way to go. For example, Construction Drawing Standard needs to be recieved and embraced widely, which can help the ducting generation of centralized air distribution system."><meta itemprop="datePublished" content="2023-03-04T18:55:42+08:00" />
 <meta itemprop="dateModified" content="2023-03-04T18:55:42+08:00" />
-<meta itemprop="wordCount" content="942"><meta itemprop="image" content="https://carrybio.netlify.app/posts/blog10/blog10-cover.jpg">
+<meta itemprop="wordCount" content="1158"><meta itemprop="image" content="https://carrybio.netlify.app/posts/blog10/blog10-cover.jpg">
 <meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary_large_image"/>
@@ -312,7 +312,43 @@ C --> D[automated hydraulic calculation]
 </li>
 </ol>
 <div align=center><img src="blog10-cutoff.jpg" width="500"></div>
-<h1 id="conclusion">Conclusion</h1>
+<h2 id="practical-tips">Practical Tips</h2>
+<p>I will show you some code blocks to start quickly. Presume you grab a HVAC abstract ducting in hand. First check all <code>nodes</code> and <code>edges</code> in your <code>graph</code>. As a side note, <strong>the directed graph</strong> would be better than the undirected graph for description.</p>
+<pre tabindex="0"><code>import networkx as nx
+from networkx.algorithms.dag import dag_longest_path_length
+from networkx.classes.function import all_neighbors
+for edge in graph.edges:
+    print(graph.edges[edge].keys())
+for node in graph.nodes:
+    print(list(graph.successors(node))) 
+for node in graph.nodes:
+    print(list(graph.predecessors(node)))
+for edge in graph.edges:
+    print(graph.edges[edge])
+for edge in graph.edges:
+    print(graph.edges[edge][&#39;airflow&#39;]) # if &#39;airflow&#39; exists
+for edge in graph.edges:
+    print(graph.edges[edge][&#39;size&#39;]) # if &#39;size&#39; exists
+for edge in graph.edges:
+    print(graph.edges[edge][&#39;weight&#39;]) # if &#39;weight&#39; exists
+</code></pre><p>About how to add Duct Reducers, Boots, and Valves, you need to locate the new <code>node</code> that means what you wanna add, and replace the inital <code>edge</code> with two new <code>edges</code>. Don&rsquo;t forget to clone and correct the attributes of <code>edges</code> and <code>nodes</code> .</p>
+<pre tabindex="0"><code># Take adding a Duct Reducer as an example
+# node_center, node_after are Python tuple
+# new_reducing_node is Python tuple
+# the next step is to correct attributes, you can customize it
+attri_center_dict = copy.deepcopy(graph.edges[node_before,node_center])
+attri_after_dict = copy.deepcopy(graph.edges[node_center,node_after])
+attri_new_node = copy.deepcopy(graph.nodes[node_center])
+attri_new_node[&#39;pos&#39;] = new_reducing_node
+attri_new_node[&#39;airflow&#39;] = 0
+attri_new_node[&#39;size&#39;] = ()
+attri_new_node[&#39;type&#39;] = &#39;reducer&#39;
+# cut off the inital edge into two new edges
+graph.remove_edge(node_center,node_after)
+graph.add_node(new_reducing_node,**attri_new_node)
+graph.add_edge(node_center,new_reducing_node,**attri_center_dict)
+graph.add_edge(new_reducing_node,node_after,**attri_after_dict)
+</code></pre><h1 id="conclusion">Conclusion</h1>
 <p><div class="mermaid">
   
 graph TB

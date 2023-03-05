@@ -56,6 +56,51 @@ Let's go back to the Data Structure. Recommend reading the [NetworkX tutorial](h
   
 <div align=center><img src="blog10-cutoff.jpg" width="500"></div>
 
+## Practical Tips
+
+I will show you some code blocks to start quickly. Presume you grab a HVAC abstract ducting in hand. First check all `nodes` and `edges` in your `graph`. As a side note, **the directed graph** would be better than the undirected graph for description.
+
+```
+import networkx as nx
+from networkx.algorithms.dag import dag_longest_path_length
+from networkx.classes.function import all_neighbors
+for edge in graph.edges:
+    print(graph.edges[edge].keys())
+for node in graph.nodes:
+    print(list(graph.successors(node))) 
+for node in graph.nodes:
+    print(list(graph.predecessors(node)))
+for edge in graph.edges:
+    print(graph.edges[edge])
+for edge in graph.edges:
+    print(graph.edges[edge]['airflow']) # if 'airflow' exists
+for edge in graph.edges:
+    print(graph.edges[edge]['size']) # if 'size' exists
+for edge in graph.edges:
+    print(graph.edges[edge]['weight']) # if 'weight' exists
+```
+
+About how to add Duct Reducers, Boots, and Valves, you need to locate the new `node` that means what you wanna add, and replace the inital `edge` with two new `edges`. Don't forget to clone and correct the attributes of `edges` and `nodes` .
+
+```
+# Take adding a Duct Reducer as an example
+# node_center, node_after are Python tuple
+# new_reducing_node is Python tuple
+# the next step is to correct attributes, you can customize it
+attri_center_dict = copy.deepcopy(graph.edges[node_before,node_center])
+attri_after_dict = copy.deepcopy(graph.edges[node_center,node_after])
+attri_new_node = copy.deepcopy(graph.nodes[node_center])
+attri_new_node['pos'] = new_reducing_node
+attri_new_node['airflow'] = 0
+attri_new_node['size'] = ()
+attri_new_node['type'] = 'reducer'
+# cut off the inital edge into two new edges
+graph.remove_edge(node_center,node_after)
+graph.add_node(new_reducing_node,**attri_new_node)
+graph.add_edge(node_center,new_reducing_node,**attri_center_dict)
+graph.add_edge(new_reducing_node,node_after,**attri_after_dict)
+```
+
 # Conclusion
 
 {{<mermaid>}}
