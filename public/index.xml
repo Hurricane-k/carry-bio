@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 07 Feb 2023 14:28:17 +0800</lastBuildDate><atom:link href="https://carrybio.netlify.app/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>What did I Learn from the first time of Engineering Data Preprocessing</title>
+      <link>https://carrybio.netlify.app/posts/blog11/</link>
+      <pubDate>Fri, 10 Mar 2023 15:24:03 +0800</pubDate>
+      
+      <guid>https://carrybio.netlify.app/posts/blog11/</guid>
+      <description>Background When I was Year Two student in my master&amp;rsquo;s study, it was the first time to explore the potential of engineering big data related to building HVAC systems. Before that, I was used to using synthetic data to verify ideas due to its controllability. If you have ever had similar experiences, you can understand what I mean. Although I was intuitively afraid of being involved in do with engineering data, I had no idea what is the core problem until I got a task.</description>
+    </item>
+    
+    <item>
       <title>A General Outline of the Automated Hydraulic Calculation for Centralized Air Distribution Systems</title>
       <link>https://carrybio.netlify.app/posts/blog10/</link>
       <pubDate>Sat, 04 Mar 2023 18:55:42 +0800</pubDate>

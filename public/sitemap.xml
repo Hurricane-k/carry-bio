@@ -2,10 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://carrybio.netlify.app/posts/blog10/</loc>
-    <lastmod>2023-03-04T18:55:42+08:00</lastmod>
-  </url><url>
     <loc>https://carrybio.netlify.app/posts/</loc>
+    <lastmod>2023-03-10T15:24:03+08:00</lastmod>
+  </url><url>
+    <loc>https://carrybio.netlify.app/posts/blog11/</loc>
+    <lastmod>2023-03-10T15:24:03+08:00</lastmod>
+  </url><url>
+    <loc>https://carrybio.netlify.app/posts/blog10/</loc>
     <lastmod>2023-03-04T18:55:42+08:00</lastmod>
   </url><url>
     <loc>https://carrybio.netlify.app/posts/blog9/</loc>
