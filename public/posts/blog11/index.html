@@ -110,7 +110,7 @@
   <meta property="og:title" content="What did I Learn from the first time of Engineering Data Preprocessing" />
 <meta property="og:description" content="Background When I was Year Two student in my master&rsquo;s study, it was the first time to explore the potential of engineering big data related to building HVAC systems. Before that, I was used to using synthetic data to verify ideas due to its controllability. If you have ever had similar experiences, you can understand what I mean. Although I was intuitively afraid of being involved in do with engineering data, I had no idea what is the core problem until I got a task." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://carrybio.netlify.app/posts/blog11/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://carrybio.netlify.app/posts/blog11/" /><meta property="og:image" content="https://carrybio.netlify.app/posts/blog11/blog11-cover.jpg"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-03-10T15:24:03+08:00" />
 <meta property="article:modified_time" content="2023-03-10T15:24:03+08:00" />
 
@@ -118,10 +118,11 @@
   <meta itemprop="name" content="What did I Learn from the first time of Engineering Data Preprocessing">
 <meta itemprop="description" content="Background When I was Year Two student in my master&rsquo;s study, it was the first time to explore the potential of engineering big data related to building HVAC systems. Before that, I was used to using synthetic data to verify ideas due to its controllability. If you have ever had similar experiences, you can understand what I mean. Although I was intuitively afraid of being involved in do with engineering data, I had no idea what is the core problem until I got a task."><meta itemprop="datePublished" content="2023-03-10T15:24:03+08:00" />
 <meta itemprop="dateModified" content="2023-03-10T15:24:03+08:00" />
-<meta itemprop="wordCount" content="863">
+<meta itemprop="wordCount" content="887"><meta itemprop="image" content="https://carrybio.netlify.app/posts/blog11/blog11-cover.jpg">
 <meta itemprop="keywords" content="" />
   
-  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://carrybio.netlify.app/posts/blog11/blog11-cover.jpg"/>
 <meta name="twitter:title" content="What did I Learn from the first time of Engineering Data Preprocessing"/>
 <meta name="twitter:description" content="Background When I was Year Two student in my master&rsquo;s study, it was the first time to explore the potential of engineering big data related to building HVAC systems. Before that, I was used to using synthetic data to verify ideas due to its controllability. If you have ever had similar experiences, you can understand what I mean. Although I was intuitively afraid of being involved in do with engineering data, I had no idea what is the core problem until I got a task."/>
 
@@ -265,12 +266,13 @@
     
   </header>
 
-  <section><h1 id="background">Background</h1>
+  <section><div align=center><img src="blog11-cover.jpg"></div>
+<h1 id="background">Background</h1>
 <p>When I was Year Two student in my master&rsquo;s study, it was the first time to explore the potential of engineering big data related to building HVAC systems. Before that, I was used to using synthetic data to verify ideas due to its <em><strong>controllability</strong></em>. If you have ever had similar experiences, you can understand what I mean. Although I was intuitively afraid of being involved in do with engineering data, I had no idea what is the core problem until I got a task.</p>
-<h1 id="whats-the-task">What&rsquo;s the task?</h1>
+<h1 id="whats-the-task">What&rsquo;s the Task?</h1>
 <p>A property agency found that <em><strong>the frequency of fans in cooling towers is consistent all year around</strong></em>, which means there was plenty of room to improve its operation for sake of energy-saving. As we all know, the building&rsquo;s thermal load changes along with the ambient temperature. The partial thermal load means the lower frequency still is able to process the thermal load. We can save energy consumption and reduce carbon emissions without sacrificing thermal comfort. The above analysis makes everything clear.</p>
 <p><strong>The goal is a strategy for controlling the frequency of fans in cooling towers</strong>. In order to make strategy easy to operate, my initial plan is to make a look-up table.</p>
-<h1 id="whats-the-data-we-can-make-full-use-of">What&rsquo;s the data we can make full use of?</h1>
+<h1 id="whats-the-data-we-can-make-full-use-of">What&rsquo;s the Data we can make Full Use of?</h1>
 <p>The agency provided me with the data collected in half of the year 2020. Apart from every 15-minute electricity consumption, other data shed more light on the operation of the building&rsquo;s HVAC systems. All the data have been listed in the next mindmap. Little emphasis has been put on thermal comfort, so indoor temperature not in our range.</p>
 <p><div class="mermaid">
   
@@ -307,7 +309,7 @@ mindmap
 
 </div>
  </p>
-<h1 id="what-did-i-learn-and-what-tools-did-i-use">What did I learn and What Tools did I use?</h1>
+<h1 id="what-did-i-learn-and-what-tools-did-i-use">What did I Learn and What Tools did I Use?</h1>
 <p>In this part, I&rsquo;ll show you some tools that can get you a quick start. The first one is <a href="https://github.com/ydataai/ydata-profiling">ydata-profiling</a>, whose name is pandas-profiling. It can give you a one-line Exploratory Data Analysis (EDA) experience, especially if you are new to expert data analysis. This third package gives me a cursory review of how bad raw engineering big data. <code>cooling load</code> is the real-time thermal load for one building. <code>tchws</code> is the main temperature of the water leaving chillers. <code>tchwr</code> is the main temperature of the water entering chillers. The below graphics illustrate that the engineering data is much poorer than I thought, which is really shocking to the point where I do not know what I have to do next. More importantly, <em><strong>the ratio of zero cannot reflect the data-missing reality, because <code>-9999</code> and minus values mean data-missing in practice</strong></em>.</p>
 <div align=center><img src="blog11-ydataprofiling1.png" width="800"></div>
 <p><em><strong>The heatmap based on the correlation matrix tells us something defying the laws of physics</strong></em>. <code>P_BeforeH</code>means the electricity consumption of the previous hour. <code>current percent</code> can be approximately regarded as the average chiller current percentage in the previous hour. <code>T_chws</code> can be approximately regarded as the temperature of the water leaving the chiller. <code>CH1</code> means chiller No. 1. The lighter the square is, the weaker the correlation between the two variables. The electricity consumption should be strongly related to the current percentage, but the heatmap could not be it. which further illustrates there is much a bunch of problems to fix before making full use of these engineering big data.</p>
@@ -317,6 +319,11 @@ mindmap
 <h1 id="conclusions">Conclusions</h1>
 <p>This article just makes a brief introduction to problems closely related to HVAC systems. As long as you need to engage yourself in engineering data. The things I mentioned before you should be careful about.</p>
 <p>The HVAC engineering data IS much different than other commercial data. <em><strong><u><font color=red>The preprocess is much more complicated and bothering, especially when it comes to multi-variables. The coupling property of physical systems cannot be ignored.</font></u></strong></em> Good luck!</p>
+<h1 id="acknowledge">Acknowledge</h1>
+<ol>
+<li>All the data this article mentions come from industry.</li>
+<li>The first picture cited at the beginning is from <a href="https://unsplash.com/">Unsplash.com</a> and Photographer <a href="https://unsplash.com/@mjessier"><em>Myriam Jessier</em></a></li>
+</ol>
 <h1 id="reference">Reference</h1>
 <ol>
 <li>
