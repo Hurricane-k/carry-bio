@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 07 Feb 2023 14:28:17 +0800</lastBuildDate><atom:link href="https://carrybio.netlify.app/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>How to Build a Loop to Train Agents in Virtual Environments for Building Energy-Efficiency Improvement</title>
+      <link>https://carrybio.netlify.app/posts/blog12/</link>
+      <pubDate>Sun, 19 Mar 2023 15:42:13 +0800</pubDate>
+      
+      <guid>https://carrybio.netlify.app/posts/blog12/</guid>
+      <description>Background Researchers have proven the potential of (Deep) Reinforcement Learning in improving building energy efficiency. The maturity of digital infrastructure motivates more and more companies to embark on deploying RL / DRL in reality because we are stuck in PID control for so long! During my internship, I summarized how to train RL in a virtual environment that is created by the actual building, which sounds like a hot concept &amp;lsquo;MPC (Model Predictive Control)&amp;rsquo;, but they are essentially different.</description>
+    </item>
+    
+    <item>
       <title>What did I Learn from the first time of Engineering Data Preprocessing</title>
       <link>https://carrybio.netlify.app/posts/blog11/</link>
       <pubDate>Fri, 10 Mar 2023 15:24:03 +0800</pubDate>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready text-sm lg:text-base"
+  style="--bg: #f1efe1"
+  lang="en-us"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>How to Build a Loop to Train Agents in Virtual Environments for Building Energy-Efficiency Improvement - Carry HE</title>
+
+  
+  <meta name="theme-color" />
+  
+  <meta name="description" content="Background Researchers have proven the potential of (Deep) Reinforcement Learning in improving building energy efficiency. The maturity of digital infrastructure motivates more and more companies to embark on deploying RL / DRL in reality because we are stuck in PID control for so long! During my internship, I summarized how to train RL in a virtual environment that is created by the actual building, which sounds like a hot concept &lsquo;MPC (Model Predictive Control)&rsquo;, but they are essentially different." />
+  <meta
+    name="author"
+    content="Carry HE"
+  />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://carrybio.netlify.app/main.min.css" />
+
+  
+  <script
+    defer
+    src="https://carrybio.netlify.app/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+   
+  <link rel="preload" as="image" href="https://carrybio.netlify.app/theme.png" />
+
+  
+  
+  
+  <link rel="preload" as="image" href="https://avatars.githubusercontent.com/u/56281608?v=4" />
+  
+  
+
+  
+  <link rel="preload" as="image" href="https://carrybio.netlify.app/github.svg" />
+  
+
+  
+  <link rel="icon" href="https://carrybio.netlify.app/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://carrybio.netlify.app/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.110.0">
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="How to Build a Loop to Train Agents in Virtual Environments for Building Energy-Efficiency Improvement" />
+<meta property="og:description" content="Background Researchers have proven the potential of (Deep) Reinforcement Learning in improving building energy efficiency. The maturity of digital infrastructure motivates more and more companies to embark on deploying RL / DRL in reality because we are stuck in PID control for so long! During my internship, I summarized how to train RL in a virtual environment that is created by the actual building, which sounds like a hot concept &lsquo;MPC (Model Predictive Control)&rsquo;, but they are essentially different." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://carrybio.netlify.app/posts/blog12/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-03-19T15:42:13+08:00" />
+<meta property="article:modified_time" content="2023-03-19T15:42:13+08:00" />
+
+  
+  <meta itemprop="name" content="How to Build a Loop to Train Agents in Virtual Environments for Building Energy-Efficiency Improvement">
+<meta itemprop="description" content="Background Researchers have proven the potential of (Deep) Reinforcement Learning in improving building energy efficiency. The maturity of digital infrastructure motivates more and more companies to embark on deploying RL / DRL in reality because we are stuck in PID control for so long! During my internship, I summarized how to train RL in a virtual environment that is created by the actual building, which sounds like a hot concept &lsquo;MPC (Model Predictive Control)&rsquo;, but they are essentially different."><meta itemprop="datePublished" content="2023-03-19T15:42:13+08:00" />
+<meta itemprop="dateModified" content="2023-03-19T15:42:13+08:00" />
+<meta itemprop="wordCount" content="352">
+<meta itemprop="keywords" content="" />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to Build a Loop to Train Agents in Virtual Environments for Building Energy-Efficiency Improvement"/>
+<meta name="twitter:description" content="Background Researchers have proven the potential of (Deep) Reinforcement Learning in improving building energy efficiency. The maturity of digital infrastructure motivates more and more companies to embark on deploying RL / DRL in reality because we are stuck in PID control for so long! During my internship, I summarized how to train RL in a virtual environment that is created by the actual building, which sounds like a hot concept &lsquo;MPC (Model Predictive Control)&rsquo;, but they are essentially different."/>
+
+  
+  
+
+  
+
+  
+  
+  <script async src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold"
+      href="https://carrybio.netlify.app/"
+      >Carry HE</a
+    >
+    <a
+      class="btn-dark ml-6 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+    ></a>
+  </div>
+
+  <a
+    class="btn-menu relative z-50 -mr-8 flex h-[5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+  ></a>
+
+  
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = `"#f1efe1"`.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >About</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/posts/"
+        >Posts</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/publications/"
+        >Publications</a
+      >
+      
+    </nav>
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:mt-0 lg:ml-12 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href=" https://github.com/Hurricane-k "
+        target="_blank"
+      ></a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-10rem)] max-w-3xl px-8 pt-20 pb-32 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-20">
+    <h1 class="!my-0 pb-2.5">How to Build a Loop to Train Agents in Virtual Environments for Building Energy-Efficiency Improvement</h1>
+
+    
+    <div class="text-sm opacity-60">
+      
+      <time>Mar 19, 2023</time>
+      
+      
+      <span class="mx-1">&middot;</span>
+      <span>Carry HE</span>
+      
+    </div>
+    
+  </header>
+
+  <section><h1 id="background">Background</h1>
+<p>Researchers have proven the potential of (Deep) Reinforcement Learning in improving building energy efficiency. The maturity of digital infrastructure motivates more and more companies to embark on deploying RL / DRL in reality because we are stuck in PID control for so long! During my internship, I summarized how to train RL in a virtual environment that is created by the actual building, which sounds like a hot concept &lsquo;<a href="https://www.sciencedirect.com/science/article/pii/S1367578820300584">MPC (Model Predictive Control)</a>&rsquo;, but they are essentially different.</p>
+<p>RL only needs one environment, regardless of the virtual or actual environment. Here, the emphasis is put on a virtual environment just for pre-training agents. In another word, if we train RL in the actual environment, the whole building operation would be so unstable to get complaints that are what we don&rsquo;t want. But in MPC, a virtual environment (or we can say, model) is a bridge connecting the control algorithms (can be RL or other methods) and the actual environment. The former Sequence diagram illustrates the workflow of RL/DRL, and the latter shows the simplified workflow of MPC.</p>
+<p><div class="mermaid">
+  
+sequenceDiagram
+    Control Method->> Environment: command N based on the feedback from N-1
+    Environment-->>Control Method: feedback N based on the commnand from N
+
+    Control Method->> Environment: command N+1 based on the feedback from N
+    Environment-->>Control Method: feedback N+1 based on the commnand from N+1
+
+    Control Method->> Environment: command N+2 based on the feedback from N+1
+    Environment-->>Control Method: feedback N+2 based on the commnand from N+2
+
+</div>
+ </p>
+<p><div class="mermaid">
+  
+sequenceDiagram 
+    Environment ->> Model: Information N+1
+    Model ->> Control Method: Output N+1 based on information N+1
+    Control Method-->> Environment: Command N+1 based on Output N+1
+
+    Environment ->> Model: Information N+2 effected by Output N+1 and Command N+1
+    Model ->> Control Method: Output N+2 based on information N+2
+    Control Method-->> Environment: command N+2 based on Output N+2
+
+    Environment ->> Model: Information N+3 effected by Output N+2 and Command N+2
+    Model ->> Control Method: Output N+3 based on information N+3
+    Control Method-->> Environment: command N+3 based on Output N+3
+
+</div>
+ </p>
+<h1 id="references">References</h1>
+<ol>
+<li>Drgoňa, J. et al. (2020) All you need to know about model predictive control for buildings. <em>Annual reviews in control.</em> [Online] 50190–232</li>
+</ol>
+</section>
+
+  
+  
+
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 no-underline hover:bg-black/[2%]"
+      href="https://carrybio.netlify.app/posts/blog11/"
+      ><span>What did I Learn from the first time of Engineering Data Preprocessing</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+
+  
+  
+
+  
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2023
+    <a class="link" href="https://carrybio.netlify.app/">Carry HE</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+
+</footer>
+
+  </body>
+</html>
