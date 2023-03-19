@@ -28,7 +28,7 @@ sequenceDiagram
 {{<mermaid align="center">}}
 sequenceDiagram 
     Environment ->> Model: Information N+1
-    Model ->> Control Method: Output N+1 based on information N+1
+    Model ->> Control Method: Output N+1 based on information N+1 and other information from iteration N
     Control Method-->> Environment: Command N+1 based on Output N+1
 
     Environment ->> Model: Information N+2 effected by Output N+1 and Command N+1

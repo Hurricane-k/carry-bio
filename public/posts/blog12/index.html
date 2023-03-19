@@ -118,7 +118,7 @@
   <meta itemprop="name" content="How to Build a Loop to Train Agents in Virtual Environments for Building Energy-Efficiency Improvement">
 <meta itemprop="description" content="Background Researchers have proven the potential of (Deep) Reinforcement Learning in improving building energy efficiency. The maturity of digital infrastructure motivates more and more companies to embark on deploying RL / DRL in reality because we are stuck in PID control for so long! During my internship, I summarized how to train RL in a virtual environment that is created by the actual building, which sounds like a hot concept &lsquo;MPC (Model Predictive Control)&rsquo;, but they are essentially different."><meta itemprop="datePublished" content="2023-03-19T15:42:13+08:00" />
 <meta itemprop="dateModified" content="2023-03-19T15:42:13+08:00" />
-<meta itemprop="wordCount" content="352">
+<meta itemprop="wordCount" content="358">
 <meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary"/>
@@ -286,7 +286,7 @@ sequenceDiagram
   
 sequenceDiagram 
     Environment ->> Model: Information N+1
-    Model ->> Control Method: Output N+1 based on information N+1
+    Model ->> Control Method: Output N+1 based on information N+1 and other information from iteration N
     Control Method-->> Environment: Command N+1 based on Output N+1
 
     Environment ->> Model: Information N+2 effected by Output N+1 and Command N+1
