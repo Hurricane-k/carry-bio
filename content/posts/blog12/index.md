@@ -25,9 +25,9 @@ sequenceDiagram
 {{</mermaid>}}
 &nbsp;
 
-{{<mermaid align="center">}}
+{{<mermaid>}}
 sequenceDiagram 
-    Environment ->> Model: Information N+1——update Model
+    Environment ->> Model: Information N+1 based on information iteration N——update Model
     Model ->> Control Method: Output N+1 based on information N+1&information iteration N
     Control Method-->> Environment: Command N+1 based on Output N+1
 
