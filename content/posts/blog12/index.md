@@ -27,15 +27,15 @@ sequenceDiagram
 
 {{<mermaid align="center">}}
 sequenceDiagram 
-    Environment ->> Model: Information N+1
-    Model ->> Control Method: Output N+1 based on information N+1 and other information from iteration N
+    Environment ->> Model: Information N+1——correct Model
+    Model ->> Control Method: Output N+1 based on information N+1&information iteration N
     Control Method-->> Environment: Command N+1 based on Output N+1
 
-    Environment ->> Model: Information N+2 effected by Output N+1 and Command N+1
+    Environment ->> Model: Information N+2 effected by Output N+1&Command N+1——correct Model
     Model ->> Control Method: Output N+2 based on information N+2
     Control Method-->> Environment: command N+2 based on Output N+2
 
-    Environment ->> Model: Information N+3 effected by Output N+2 and Command N+2
+    Environment ->> Model: Information N+3 effected by Output N+2&Command N+2——correct Model
     Model ->> Control Method: Output N+3 based on information N+3
     Control Method-->> Environment: command N+3 based on Output N+3
 {{</mermaid>}}
