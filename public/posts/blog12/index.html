@@ -118,7 +118,7 @@
   <meta itemprop="name" content="How to Build a Loop to Train Agents in Virtual Environments for Building Energy-Efficiency Improvement">
 <meta itemprop="description" content="Background Researchers have proven the potential of (Deep) Reinforcement Learning in improving building energy efficiency. The maturity of digital infrastructure motivates more and more companies to embark on deploying RL / DRL in reality because we are stuck in PID control for so long! During my internship, I summarized how to train RL in a virtual environment that is created by the actual building, which sounds like a hot concept &lsquo;MPC (Model Predictive Control)&rsquo;, but they are essentially different."><meta itemprop="datePublished" content="2023-03-19T15:42:13+08:00" />
 <meta itemprop="dateModified" content="2023-03-19T15:42:13+08:00" />
-<meta itemprop="wordCount" content="358">
+<meta itemprop="wordCount" content="528">
 <meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary"/>
@@ -299,6 +299,24 @@ sequenceDiagram
 
 </div>
  </p>
+<h1 id="framework">Framework</h1>
+<p>Generally, if we want to train RL in a virtual environment, <em><strong>two parts</strong></em> and <em><strong>one connection</strong></em> needs to be considered.</p>
+<ol>
+<li><strong>two parts</strong> are physical system module and control module respectively
+<ol>
+<li><strong>physcial system module</strong>: descibe certain physcial system <u>mathematically</u>. For example, in the mathematical description of a building HVAC system, we need chiller mathematical models or other core equipment models in accordance with your personal needs.</li>
+<li><strong>control module</strong>: the module encompasses the <u>control logic</u>, you can design whatever you like as control logic, including RL or other fancy algorithms.</li>
+</ol>
+</li>
+<li><strong>one connection</strong> is how to connect these two modules
+<ol>
+<li><strong>situation 1</strong>: <u>it depends on how to deploy the foregoing modules</u>. If the foregoing modules are deployed in the same place, (e.g. two modules are written in Python), the connection can be ignored.</li>
+<li><strong>situation 2</strong>: Alternatively, the physical system module is built in certain simulation software, like TRNSYS, and then the control module is Python file. Under this circumstance, you need some external tool to communicate.</li>
+</ol>
+</li>
+</ol>
+<div align=center><img src="blog12-framework.jpg" width="800"></div>
+<h1 id="tools-useful-for-modules-and-connection">Tools Useful for Modules and Connection</h1>
 <h1 id="references">References</h1>
 <ol>
 <li>Drgoňa, J. et al. (2020) All you need to know about model predictive control for buildings. <em>Annual reviews in control.</em> [Online] 50190–232</li>

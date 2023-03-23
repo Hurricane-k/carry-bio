@@ -41,6 +41,21 @@ sequenceDiagram
 {{</mermaid>}}
 &nbsp;
 
+# Framework
+
+Generally, if we want to train RL in a virtual environment, ***two parts*** and ***one connection*** needs to be considered.
+
+1. **two parts** are physical system module and control module respectively
+   1. **physcial system module**: descibe certain physcial system <u>mathematically</u>. For example, in the mathematical description of a building HVAC system, we need chiller mathematical models or other core equipment models in accordance with your personal needs.
+   2. **control module**: the module encompasses the <u>control logic</u>, you can design whatever you like as control logic, including RL or other fancy algorithms.
+2. **one connection** is how to connect these two modules
+    1. **situation 1**: <u>it depends on how to deploy the foregoing modules</u>. If the foregoing modules are deployed in the same place, (e.g. two modules are written in Python), the connection can be ignored. 
+    2.  **situation 2**: Alternatively, the physical system module is built in certain simulation software, like TRNSYS, and then the control module is Python file. Under this circumstance, you need some external tool to communicate.
+
+<div align=center><img src="blog12-framework.jpg" width="800"></div>
+
+# Tools Useful for Modules and Connection
+
 # References
 
 1. Drgoňa, J. et al. (2020) All you need to know about model predictive control for buildings. *Annual reviews in control.* [Online] 50190–232
