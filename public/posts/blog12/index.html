@@ -110,7 +110,7 @@
   <meta property="og:title" content="How to Build a Loop to Train Agents in Virtual Environments for Building Energy-Efficiency Improvement" />
 <meta property="og:description" content="Background Researchers have proven the potential of (Deep) Reinforcement Learning in improving building energy efficiency. The maturity of digital infrastructure motivates more and more companies to embark on deploying RL / DRL in reality because we are stuck in PID control for so long! During my internship, I summarized how to train RL in a virtual environment that is created by the actual building, which sounds like a hot concept &lsquo;MPC (Model Predictive Control)&rsquo;, but they are essentially different." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://carrybio.netlify.app/posts/blog12/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://carrybio.netlify.app/posts/blog12/" /><meta property="og:image" content="https://carrybio.netlify.app/posts/blog12/blog12-cover.jpg"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-03-19T15:42:13+08:00" />
 <meta property="article:modified_time" content="2023-03-19T15:42:13+08:00" />
 
@@ -118,10 +118,11 @@
   <meta itemprop="name" content="How to Build a Loop to Train Agents in Virtual Environments for Building Energy-Efficiency Improvement">
 <meta itemprop="description" content="Background Researchers have proven the potential of (Deep) Reinforcement Learning in improving building energy efficiency. The maturity of digital infrastructure motivates more and more companies to embark on deploying RL / DRL in reality because we are stuck in PID control for so long! During my internship, I summarized how to train RL in a virtual environment that is created by the actual building, which sounds like a hot concept &lsquo;MPC (Model Predictive Control)&rsquo;, but they are essentially different."><meta itemprop="datePublished" content="2023-03-19T15:42:13+08:00" />
 <meta itemprop="dateModified" content="2023-03-19T15:42:13+08:00" />
-<meta itemprop="wordCount" content="528">
+<meta itemprop="wordCount" content="870"><meta itemprop="image" content="https://carrybio.netlify.app/posts/blog12/blog12-cover.jpg">
 <meta itemprop="keywords" content="" />
   
-  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://carrybio.netlify.app/posts/blog12/blog12-cover.jpg"/>
 <meta name="twitter:title" content="How to Build a Loop to Train Agents in Virtual Environments for Building Energy-Efficiency Improvement"/>
 <meta name="twitter:description" content="Background Researchers have proven the potential of (Deep) Reinforcement Learning in improving building energy efficiency. The maturity of digital infrastructure motivates more and more companies to embark on deploying RL / DRL in reality because we are stuck in PID control for so long! During my internship, I summarized how to train RL in a virtual environment that is created by the actual building, which sounds like a hot concept &lsquo;MPC (Model Predictive Control)&rsquo;, but they are essentially different."/>
 
@@ -265,7 +266,8 @@
     
   </header>
 
-  <section><h1 id="background">Background</h1>
+  <section><div align=center><img src="blog12-cover.jpg"></div>
+<h1 id="background">Background</h1>
 <p>Researchers have proven the potential of (Deep) Reinforcement Learning in improving building energy efficiency. The maturity of digital infrastructure motivates more and more companies to embark on deploying RL / DRL in reality because we are stuck in PID control for so long! During my internship, I summarized how to train RL in a virtual environment that is created by the actual building, which sounds like a hot concept &lsquo;<a href="https://www.sciencedirect.com/science/article/pii/S1367578820300584">MPC (Model Predictive Control)</a>&rsquo;, but they are essentially different.</p>
 <p>RL only needs one environment, regardless of the virtual or actual environment. Here, the emphasis is put on a virtual environment just for pre-training agents. In another word, if we train RL in the actual environment, the whole building operation would be so unstable to get complaints that are what we don&rsquo;t want. But in MPC, a virtual environment (or we can say, model) is a bridge connecting the control algorithms (can be RL or other methods) and the actual environment. The former Sequence diagram illustrates the workflow of RL/DRL, and the latter shows the simplified workflow of MPC.</p>
 <p><div class="mermaid">
@@ -317,9 +319,26 @@ sequenceDiagram
 </ol>
 <div align=center><img src="blog12-framework.jpg" width="800"></div>
 <h1 id="tools-useful-for-modules-and-connection">Tools Useful for Modules and Connection</h1>
+<h2 id="module-physical-system">Module: Physical system</h2>
+<p>There are two ways to build a physical system mathematically. Firstly, you write the key components from scratch. Here is a really versatile tutorial you cannot miss. <a href="https://energyplus.net/assets/nrel_custom/pdfs/pdfs_v22.2.0/EngineeringReference.pdf">Energy Reference</a> can tell you the prototypes of the key components. For example, in ENERGYPLUS<sup>TM</sup> VERSION 22.2.0 DOCUMENTATION, on Page 795, it explains the EIR Chiller model that is really popular in various research. EIR is a kind of regression model. In the same way, you can find mathematical models of cooling towers and water pumps. You can use <a href="https://scikit-learn.org/stable/">scikit-learn</a> or other toolkits to achieve your goals.</p>
+<p>Alternatively, current simulation software can help you build a physical system, including <a href="https://www.trnsys.com/">TRNSYS</a>, <a href="https://www.3ds.com/products-services/catia/products/dymola/">Dymola</a>, <a href="https://openmodelica.org/">Open Modelica</a>, <a href="https://energyplus.net/">EnergyPlus</a>. I recommend the last two out there due to their property of open source. EnergyPlus has an in-built Python API. Open Modelica and EnergyPlus represent micro (system) and marco (building) respectively.</p>
+<h2 id="module-logic-control">Module: Logic control</h2>
+<p>The discussion range will be limited in some state-of-art algorithms. <a href="https://scikit-learn.org/stable/">scikit-learn</a> is one of the most popular python packages I guess. Maybe you can find something useful for you. Here I want make a cursory introduction on some (D)RL third party package, like <a href="https://stable-baselines.readthedocs.io/en/master/">Stable-Baselines</a>, <a href="https://github.com/keras-rl/keras-rl">keras-rl</a>, <a href="https://mushroomrl.readthedocs.io/en/latest/">MushroomRL</a>, etc. If these foregoing packages cannot meet your requirements, you change it.</p>
+<h2 id="connection">Connection</h2>
+<p>This part is not my strong suit because my preference is option #1 in the above graph. I have a little knowledge in this aspect: <a href="https://github.com/CATIA-Systems/FMPy">FMPy</a> and <a href="https://fmi-standard.org/">FMI</a>. Long story short. Functional Mock-up Units are something you need.</p>
+<h1 id="literature-a-collection-of-case-study">Literature (A Collection of Case Study)</h1>
+<p>I plan to end up with a collection of case study. Many previous papers have verified the deployment of RL in real or virtual environments. I pick up some case study to share with you all. I summarize them following these criteria: environment, method, building type, system type, and control (goal).</p>
+<div align=center><img src="blog12-literature1.jpg" width="1000"></div>
+<div align=center><img src="blog12-literature2.jpg" width="1000"></div>
+<h1 id="acknowledge">Acknowledge</h1>
+<ol>
+<li>Its content is finish during my internship. Thank you for the inspiration from the team where I stayed.</li>
+<li>The first picture cited at the beginning is from <a href="https://unsplash.com/">Unsplash.com</a> and Photographer <a href="https://unsplash.com/@peterlaster"><em>Pedro Lastra</em></a></li>
+</ol>
 <h1 id="references">References</h1>
 <ol>
 <li>Drgoňa, J. et al. (2020) All you need to know about model predictive control for buildings. <em>Annual reviews in control.</em> [Online] 50190–232</li>
+<li><a href="https://energyplus.net/assets/nrel_custom/pdfs/pdfs_v22.2.0/EngineeringReference.pdf">Energy Reference - PDF Documentation from EnergyPlus</a></li>
 </ol>
 </section>
 

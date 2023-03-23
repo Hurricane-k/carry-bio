@@ -6,6 +6,8 @@ mermaid: true
 author: Carry HE
 ---
 
+<div align=center><img src="blog12-cover.jpg"></div>
+
 # Background
 
 Researchers have proven the potential of (Deep) Reinforcement Learning in improving building energy efficiency. The maturity of digital infrastructure motivates more and more companies to embark on deploying RL / DRL in reality because we are stuck in PID control for so long! During my internship, I summarized how to train RL in a virtual environment that is created by the actual building, which sounds like a hot concept '[MPC (Model Predictive Control)](https://www.sciencedirect.com/science/article/pii/S1367578820300584)', but they are essentially different.
@@ -56,6 +58,34 @@ Generally, if we want to train RL in a virtual environment, ***two parts*** and 
 
 # Tools Useful for Modules and Connection
 
+## Module: Physical system
+
+There are two ways to build a physical system mathematically. Firstly, you write the key components from scratch. Here is a really versatile tutorial you cannot miss. [Energy Reference](https://energyplus.net/assets/nrel_custom/pdfs/pdfs_v22.2.0/EngineeringReference.pdf) can tell you the prototypes of the key components. For example, in ENERGYPLUS<sup>TM</sup> VERSION 22.2.0 DOCUMENTATION, on Page 795, it explains the EIR Chiller model that is really popular in various research. EIR is a kind of regression model. In the same way, you can find mathematical models of cooling towers and water pumps. You can use [scikit-learn](https://scikit-learn.org/stable/) or other toolkits to achieve your goals.
+
+Alternatively, current simulation software can help you build a physical system, including [TRNSYS](https://www.trnsys.com/), [Dymola](https://www.3ds.com/products-services/catia/products/dymola/), [Open Modelica](https://openmodelica.org/), [EnergyPlus](https://energyplus.net/). I recommend the last two out there due to their property of open source. EnergyPlus has an in-built Python API. Open Modelica and EnergyPlus represent micro (system) and marco (building) respectively.
+
+## Module: Logic control
+
+The discussion range will be limited in some state-of-art algorithms. [scikit-learn](https://scikit-learn.org/stable/) is one of the most popular python packages I guess. Maybe you can find something useful for you. Here I want make a cursory introduction on some (D)RL third party package, like [Stable-Baselines](https://stable-baselines.readthedocs.io/en/master/), [keras-rl](https://github.com/keras-rl/keras-rl), [MushroomRL](https://mushroomrl.readthedocs.io/en/latest/), etc. If these foregoing packages cannot meet your requirements, you change it.
+
+## Connection
+
+This part is not my strong suit because my preference is option #1 in the above graph. I have a little knowledge in this aspect: [FMPy](https://github.com/CATIA-Systems/FMPy) and [FMI](https://fmi-standard.org/). Long story short. Functional Mock-up Units are something you need.
+
+# Literature (A Collection of Case Study)
+
+I plan to end up with a collection of case study. Many previous papers have verified the deployment of RL in real or virtual environments. I pick up some case study to share with you all. I summarize them following these criteria: environment, method, building type, system type, and control (goal).
+
+<div align=center><img src="blog12-literature1.jpg" width="1000"></div>
+
+<div align=center><img src="blog12-literature2.jpg" width="1000"></div>
+
+# Acknowledge
+
+1. Its content is finish during my internship. Thank you for the inspiration from the team where I stayed.
+2. The first picture cited at the beginning is from [Unsplash.com](https://unsplash.com/) and Photographer [*Pedro Lastra*](https://unsplash.com/@peterlaster)
+
 # References
 
 1. Drgoňa, J. et al. (2020) All you need to know about model predictive control for buildings. *Annual reviews in control.* [Online] 50190–232
+2. [Energy Reference - PDF Documentation from EnergyPlus](https://energyplus.net/assets/nrel_custom/pdfs/pdfs_v22.2.0/EngineeringReference.pdf)
