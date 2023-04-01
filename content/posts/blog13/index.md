@@ -26,3 +26,49 @@ flowchart TD
     D -->|output 2| G[middle-scale analysis]
     E -->|output 3| H[fine-scale analysis]
 {{</mermaid>}}
+&nbsp;
+
+# Energy-Saving analysis based on key parameters
+
+To out best knowledge, If we only have cursory-scale data in hand, the cursory-scale energy consumption is the corresponding output. For example, we could define the corresponding cursory-scale output as `total electricity consumption of HVAC`, the corresponding middle-scale output as `total electricity consumption of the chiller group`, and the corresponding fine-scale as <font color=green>other data</font>, like `water flow`,`water temperature leaving chiller #1`. As a side note, the range of <font color=green>other data</font> are too much broad, no planned models to predict the future situation of 'other data' we mentioned data. If we have them, just take as the full advantage of them as you can. As the previous papers proposed, instead of many parameters, a few parameters (we can say 'key parameters') can predict `total electricity consumption of HVAC` , I listed some results in the mindmap. However, the more advaced control deployed in building, many keys parameters are not fixed numbers, or cannot be presented by number. Some related study might as well follow the development of the construction industry. And the similar methods could be used to find which are the key paramters to perdict middle-scale output other than `total electricity consumption of HVAC`
+
+{{<mermaid>}}
+mindmap
+  root((accuracy in prediction))
+    relatively high 
+      the type of plant
+      the type of end use
+      the type of water system
+      building shape coefficient
+      building area
+      average summer temperature
+      building sceduled time
+      equipment density
+      window wall ratio
+      designated indoor summer temperature
+      occupancy desnity
+      lighting density
+    middle
+      the type of plant
+      building area
+      average summer temperature
+      building sceduled time
+      equipment density
+      window wall ratio
+      designated indoor summer temperature
+      occupancy desnity
+    relative low
+      the type of plant
+      building area
+      average summer temperature
+      building sceduled time
+      equipment density
+      window wall ratio
+{{</mermaid>}}
+&nbsp;
+
+The key parameters (as model inputs) and the corresponding output have determined the structure of the mathematical models. You can try various models to pick up one of them based on the model performance. In order to finish the whole prcoess, the simulation data would replace the real enigneering data and train the mathematical models. How to get the enough simulation data that meet our requiement? That is the one thing I'm gonna talk about in the next section.
+
+# Reference
+1. Zhu, M. The construction of minimum variable set for energy prediction models of office building. Tongji University,2018.
+2. Sha, H., Xu, P., Yan, C. et al. Development of a key-variable-based parallel HVAC energy predictive model. Build. Simul. 15, 1193–1208 (2022).
