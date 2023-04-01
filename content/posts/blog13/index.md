@@ -22,7 +22,7 @@ flowchart TD
     B -->|input 1| C[cursory-scale data]
     B -->|input 2| D[middle-scale data]
     B -->|input 3| E[fine-scale data]
-    C -->|output 1| F[Total Electricity Bill]
-    D -->|output 2| G[Sub-metering Electricity]
-    E -->|output 3| H[Sub-metering Other Data]
+    C -->|output 1| F[cursory-scale analysis]
+    D -->|output 2| G[middle-scale analysis]
+    E -->|output 3| H[fine-scale analysis]
 {{</mermaid>}}
