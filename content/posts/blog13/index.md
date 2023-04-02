@@ -19,7 +19,7 @@ Traditionally, if we wanna know how to reduce energy consumption or spike the en
 
 {{<mermaid>}}
 flowchart LR
-    A[Engineering Big Data] --> B(Classification)
+    A[Engineering\n Big Data] --> B(Classification)
     B --> C["cursory-scale\n energy\n consumption"]
     B --> D["middle-scale\n energy\n consumption"]
     B --> E["fine-scale\n other data"]
