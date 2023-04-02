@@ -121,7 +121,7 @@ However, the uncontrollability of engineering big data causes other troubles for
 <meta itemprop="description" content="Background Increasing accumulated engineering data are attracting researchers to feed real data to mathematical modes representing physical systems due to the boring previous practice where relevant crowds chose train models using simulation data.
 However, the uncontrollability of engineering big data causes other troubles for us. The diversity of engineering data makes it difficult to build models for buildings. Of course, modeling one by one is a plausible way to avoid the problem of the differentiation of inputs, but it will make this industry more labor-intensive rather than brain-intensive."><meta itemprop="datePublished" content="2023-03-24T20:40:01+08:00" />
 <meta itemprop="dateModified" content="2023-03-24T20:40:01+08:00" />
-<meta itemprop="wordCount" content="654">
+<meta itemprop="wordCount" content="1268">
 <meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary"/>
@@ -133,6 +133,27 @@ However, the uncontrollability of engineering big data causes other troubles for
   
 
   
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+
 
   
   
@@ -273,22 +294,45 @@ However, the uncontrollability of engineering big data causes other troubles for
 <p>Increasing accumulated engineering data are attracting researchers to feed real data to mathematical modes representing physical systems due to the boring previous practice where relevant crowds chose train models using simulation data.</p>
 <p>However, the uncontrollability of engineering big data causes other troubles for us. The diversity of engineering data makes it difficult to build models for buildings. Of course, modeling one by one is a plausible way to avoid the problem of the differentiation of inputs, but it will make this industry more labor-intensive rather than brain-intensive. Alternatively, building a relatively general mathematical model for most of the buildings around the world makes data preprocessing important unprecedentedly. (<em>Don&rsquo;t lose hope, although GPT can theoretically analyze the status quo of every building&rsquo;s energy consumption. I still believe someplace has room to maneuver.</em>)</p>
 <h1 id="prototype">Prototype</h1>
-<p>Traditionally, if we wanna know how to reduce energy consumption or spike the energy efficiency for certain buildings in the future, we have to know the future energy consumption which would follow the current pattern, which means it is really important to build an energy prediction model that fits different kinds of building. Given the diversity of engineering big data, we can build a hierarchy model to output different scale results, like the next merely illustrative flowchart.</p>
+<p>Traditionally, if we wanna know how to reduce energy consumption or spike the energy efficiency for certain buildings, endless field studies cannot be avoided because the energy consumption would be accessed much easier than <font color=red>other data</font>, like water temperature (e.g. Low deltaT). But other data is the deep root of low energy efficiency. If we can get model where <font color=red>other data</font> is defined as inputs and energy consumption, we can use some methods in calculating <font color=red>other data</font> inversely. <font color=red>Other data</font> is included in key paramters we will mention later. <font color=red>Other data</font> can help us to know why the energy efficiency is low or high. So building a energy consumption estimation model is imperative. Given the diversity of engineering big data, we can build a hierarchy model to output <em><strong>different scale energy consumption</strong></em>.</p>
+<div class="mermaid">
+  
+flowchart LR
+    A[Engineering Big Data] --> B(Classification)
+    B --> C["cursory-scale\n energy consumption"]
+    B --> D["middle-scale\n energy consumption"]
+    B --> E["fine-scale\n other data"]
+    C --> F["total electricity\n consumption of HVAC"]
+    C --> FF["total electricity\n consumption of plant"]
+    D --> G["total electricity\n consumption of the chiller group"]
+    D --> GG["total electricity\n consumption of other equipment"]
+    D --> GGG["total electricity consumption\n of other equipment group"]
+    E --> H["data about operation"]
+    E --> HH["data except operation"]
+    H --> I["water temperature"]
+    H --> II["water flow"]
+    H --> III[...]
+    HH --> J[key paramters]
+    HH --> JJ[other than key parameters]
+
+</div>
+<p>To our best knowledge, If we only have cursory-scale data in hand, the cursory-scale energy consumption is the corresponding output. For example, we could define the corresponding cursory-scale output as <code>total electricity consumption of HVAC</code>, the corresponding middle-scale output as <code>total electricity consumption of the chiller group</code>. In terms of <font color=red>other data</font>, like <code>water flow</code>, <code>water temperature leaving chiller #1</code>. The range is too much broad, If we have them, just take as full advantage of them as you can.</p>
 <p><div class="mermaid">
   
 flowchart TD
-    A[Engineering Big Data] --> B(Classification)
-    B -->|input 1| C[cursory-scale data]
-    B -->|input 2| D[middle-scale data]
-    B -->|input 3| E[fine-scale data]
-    C -->|output 1| F[cursory-scale analysis]
-    D -->|output 2| G[middle-scale analysis]
-    E -->|output 3| H[fine-scale analysis]
-
+    A[Hierarchy Model] --> B[cursory-scale energy consumption]
+    A --> C[middle-scale energy comsuption]
+    A --> D[data about operation]
+    B & C --> E[energy consumption \nestimation model\n respectively]
+    E --> F[reserve calculate\n key parameters]
+    F --> G[comparison with\n recommended threshold] 
+    D --> H[data preprocessing]
+    H --> J[check the operaiton\n of HVAC system]
+    
 </div>
  </p>
 <h1 id="energy-saving-analysis-based-on-key-parameters">Energy-Saving analysis based on key parameters</h1>
-<p>To our best knowledge, If we only have cursory-scale data in hand, the cursory-scale energy consumption is the corresponding output. For example, we could define the corresponding cursory-scale output as <code>total electricity consumption of HVAC</code>, the corresponding middle-scale output as <code>total electricity consumption of the chiller group</code>, and the corresponding fine-scale as <font color=green>other data</font>, like <code>water flow</code>,<code> water temperature leaving chiller #1</code>. As a side note, the range of <font color=green>other data</font> is too much broad, with no planned models to predict the future situation of the &lsquo;other data&rsquo; we mentioned data. If we have them, just take as full advantage of them as you can. As the previous papers proposed, instead of many parameters, a few parameters (we can say &lsquo;key parameters&rsquo;) can predict <code>total electricity consumption of HVAC</code> , I listed some results in the mindmap. However, with the more advanced control deployed in buildings, many key parameters are not fixed numbers or cannot be presented by number. Some related studies might as well follow the development of the construction industry. And similar methods could be used to find which are the key parameters to predict middle-scale output other than <code>total electricity consumption of HVAC</code>.</p>
+<p>As the previous papers proposed, instead of many parameters, a few parameters (we can say &lsquo;key parameters&rsquo;) can predict <code>total electricity consumption of HVAC</code> , I listed some results in the mindmap. However, with the more advanced control deployed in buildings, many key parameters are not fixed numbers or cannot be presented by number. Some related studies might as well follow the development of the construction industry. And similar methods could be used to find which are the key parameters to predict middle-scale output other than <code>total electricity consumption of HVAC</code></p>
 <p><div class="mermaid">
   
 mindmap
@@ -326,10 +370,79 @@ mindmap
 </div>
  </p>
 <p>The key parameters (as model inputs) and the corresponding output have determined the structure of the mathematical models. You can try various models to pick up one of them based on the model performance. In order to finish the whole process, the simulation data would replace the real engineering data and train the mathematical models. How to get enough simulation data that meet our requirements? That is the one thing I&rsquo;m gonna talk about in the next section.</p>
+<h1 id="generation-of-simulation-data-based-on-latin-hypercube-sampling">Generation of Simulation Data based on Latin Hypercube Sampling</h1>
+<p>You can get the basic knowledge about Latin hypercube sampling <a href="https://en.wikipedia.org/wiki/Latin_hypercube_sampling">online</a>. We plan put most of emphasis on the practice. First, I&rsquo;ll introduce the toolkits engaged.</p>
+<ol>
+<li>
+<p>Coding Language is Python, and the core third party package is <a href="https://pythonhosted.org/pyDOE/randomized.html">pyDOE</a>. However, there are other alternatives. For example, <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.qmc.LatinHypercube.html">scipy</a> has the similar function <code>scipy.stats.qmc.LatinHypercube</code>. According to the chosen key parameters and their respective range, you can get many sets of samples.</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Grasshopper_3D#:~:text=Grasshopper%20is%20a%20visual%20programming,dragging%20components%20onto%20a%20canvas.">Grasshopper</a> is a tool that can generate models based on the sampling results in a short period of time. You might have heard a buzzword &lsquo;<a href=""><strong>Parametric Design</strong></a>&rsquo;. In this step, you can turn to your Lab&rsquo;s mates for help. But, if you are really interested in this part and can&rsquo;t wait to do in person, Video tutorials wait you to explore (I will give you <a href="https://www.youtube.com/watch?v=cPUJ99mJAoE">a merely illustrative example</a>). But, more importantly, you need to use other plug-in to convert the parametric designs to the file format supported by some certain simulation softwares. You can check <a href="https://www.food4rhino.com/en/app/ladybug-tools">this website</a> to find something useful. I am not really familar with this, only help you to this point. Cooperation sometimes really is valuable.</p>
+</li>
+<li>
+<p>I choose to export parametric desgin results as <code>.idf</code> files, which is supported by EnergyPlus. In order to save the simulation time consuming in EnergyPlus, <a href="https://eppy.readthedocs.io/en/latest/runningeplus.html#Running-in-parallel-processes"><em>Running in parallel process in Eppy</em></a> will surprise you. My first hand experience is that parallel process cannot be run on Windows OS. But that can work out on Linux OS. So I choose Linux OS ultimately.</p>
+</li>
+<li>
+<p>After fininshing the parallel process, You can use these data to build models to predict different scale energy comsumption. From Linear Regression to other fancy algorithms, you can find corresponding python package to achieve your goals.</p>
+</li>
+</ol>
+<h1 id="how-to-use-key-parameters-to-analyze-building-energy-efficiency">How to use Key Parameters to Analyze Building Energy Efficiency</h1>
+<p>Taken Chinese National Construction Code as an example, Chinese National Construction Code dedicate the recommended threshold for some parameters. I summarized some values in the next table.</p>
+<table>
+<thead>
+<tr>
+<th>No.</th>
+<th>Building type</th>
+<th>lighting density</th>
+<th>equipment density</th>
+<th>&hellip;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>office building</td>
+<td>$\leq 8 Watt/m^2$</td>
+<td>$\leq 15 Watt/m^2$</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>2</td>
+<td>hotel</td>
+<td>$\leq 6 Watt/m^2$</td>
+<td>$\leq 15 Watt/m^2$</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>3</td>
+<td>shopping mall</td>
+<td>$\leq 9 Watt/m^2$</td>
+<td>$\leq 13 Watt/m^2$</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+</tr>
+</tbody>
+</table>
+<p>Comparison between the recommended threshold and actual value of parameters can help us know if this is the reason why the building energy consumption is high or energy efficiency is low.</p>
+<p>As far as how to calculate key parameters (as input of models) inversely, some optimization methods are really helpful, like Particle Swarm Optimization(PSO) and Genetic Algorithm(GA).</p>
 <h1 id="reference">Reference</h1>
 <ol>
 <li>Zhu, M. The construction of minimum variable set for energy prediction models of office building. Tongji University,2018.</li>
 <li>Sha, H., Xu, P., Yan, C. et al. Development of a key-variable-based parallel HVAC energy predictive model. Build. Simul. 15, 1193–1208 (2022).</li>
+<li><a href="https://en.wikipedia.org/wiki/Latin_hypercube_sampling">Latin hypercube sampling - Wikipedia</a></li>
+<li><a href="https://pythonhosted.org/pyDOE/randomized.html">Randomized Designs — pyDOE 0.3.6 documentation</a></li>
+<li><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.qmc.LatinHypercube.html">scipy.stats.qmc.LatinHypercube — SciPy v1.10.1 Manual</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Grasshopper_3D#:~:text=Grasshopper%20is%20a%20visual%20programming,dragging%20components%20onto%20a%20canvas.">Grasshopper 3D - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Parametric_design#:~:text=Parametric%20design%20is%20a%20design,design%20intent%20and%20design%20response.">Parametric design - Wikipedia</a></li>
+<li><a href="https://www.youtube.com/watch?v=cPUJ99mJAoE">Parametric Design | Grasshopper Tutorial | Rhino 3d - YouTube</a></li>
+<li><a href="https://www.food4rhino.com/en/app/ladybug-tools">Ladybug Tools | Food4Rhino</a></li>
+<li><a href="https://eppy.readthedocs.io/en/latest/runningeplus.html#Running-in-parallel-processes">Running EnergyPlus from Eppy — eppy 0.5.62 documentation</a></li>
 </ol>
 </section>
 
