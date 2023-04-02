@@ -7,6 +7,8 @@ mermaid: true
 author: Carry HE
 ---
 
+<div align=center><img src="blog13-cover.jpg"></div>
+
 # Background
 
 Increasing accumulated engineering data are attracting researchers to feed real data to mathematical modes representing physical systems due to the boring previous practice where relevant crowds chose train models using simulation data.
@@ -27,14 +29,14 @@ flowchart LR
     C --> FF["total electricity\n consumption of plant"]
     D --> G["total electricity\n consumption of\n the chiller group"]
     D --> GG["total electricity\n consumption of\n other equipment"]
-    D --> GGG["total electricity consumption\n of other equipment group"]
+    D --> GGG["total electricity\n consumption of\n other equipment groups"]
     E --> H["data about operation"]
     E --> HH["data except operation"]
     H --> I["water temperature"]
     H --> II["water flow"]
     H --> III[...]
     HH --> J[key paramters]
-    HH --> JJ[other than key parameters]
+    HH --> JJ[other than\n key parameters]
 {{</mermaid>}}
 
 To our best knowledge, If we only have cursory-scale data in hand, the cursory-scale energy consumption is the corresponding output. For example, we could define the corresponding cursory-scale output as `total electricity consumption of HVAC`, the corresponding middle-scale output as `total electricity consumption of the chiller group`. In terms of <font color=red>other data</font>, like `water flow`, `water temperature leaving chiller #1`. The range is too much broad, If we have them, just take as full advantage of them as you can.
@@ -121,7 +123,16 @@ Comparison between the recommended threshold and actual value of parameters can 
 
 As far as how to calculate key parameters (as input of models) inversely, some optimization methods are really helpful, like Particle Swarm Optimization(PSO) and Genetic Algorithm(GA).
 
+# Conclusion
+
+The blog focus is on ***the model-based method to analyze building energy consumption***, which means the cursory/middle-scale energy consumption get their moments. In the near future article, I will introduce how to utilize the fine-scale operation data to point out the operation problem happening to the building HAVC system.
+
+# Acknowledge
+1. Thanks for the lab's mates to help me fulfill the part of parametric design.
+2. The first picture cited at the beginning is from [Unsplash.com](https://unsplash.com/) and Photographer [*Lukas Blazek*](https://unsplash.com/@goumbik)
+
 # Reference
+
 1. Zhu, M. The construction of minimum variable set for energy prediction models of office building. Tongji University,2018.
 2. Sha, H., Xu, P., Yan, C. et al. Development of a key-variable-based parallel HVAC energy predictive model. Build. Simul. 15, 1193–1208 (2022).
 3. [Latin hypercube sampling - Wikipedia](https://en.wikipedia.org/wiki/Latin_hypercube_sampling)  
