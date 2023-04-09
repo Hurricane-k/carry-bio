@@ -13,7 +13,7 @@
       <pubDate>Sat, 08 Apr 2023 14:45:46 +0800</pubDate>
       
       <guid>https://carrybio.netlify.app/posts/blog14/</guid>
-      <description></description>
+      <description>Background Industrial Fault Detection and Diagnosis (I-FDD) are in the process of deployment in practice, which is inspiring and exciting. For example, the latest inspection robots showed up at the 4th BAIDU OpenI/O QIZHI Developers Conference, which has come to end. The robot is typically designed for the transformer substations, which take into account the complex layout (steps, slope, etc.). It occurs to me that my previous experience, in which I was involved in developing and testing the algorithms for FDD based on the inspection robot in the chiller plant.</description>
     </item>
     
     <item>
