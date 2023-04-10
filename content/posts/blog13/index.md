@@ -129,7 +129,7 @@ The blog focus is on ***the model-based method to analyze building energy consum
 
 # Acknowledge
 1. Thanks for the lab's mates to help me fulfill the part of parametric design.
-2. The first picture cited at the beginning is from [Unsplash.com](https://unsplash.com/) and Photographer [*Lukas Blazek*](https://unsplash.com/@goumbik)
+2. The first picture cited at the beginning is from [Unsplash.com](https://unsplash.com/) and Photographer [*Lukas Blazek*](https://unsplash.com/@goumbik).
 
 # Reference
 
