@@ -118,7 +118,7 @@
   <meta itemprop="name" content="My First Engagement in Fault Detection with the Help of the Inspection Robot in the Chiller Plant">
 <meta itemprop="description" content="Background Industrial Fault Detection and Diagnosis (I-FDD) are in the process of deployment in practice, which is inspiring and exciting. For example, the latest inspection robots showed up at the 4th BAIDU OpenI/O QIZHI Developers Conference, which has come to end. The robot is typically designed for the transformer substations, which take into account the complex layout (steps, slope, etc.). It occurs to me that my previous experience, in which I was involved in developing and testing the algorithms for FDD based on the inspection robot in the chiller plant."><meta itemprop="datePublished" content="2023-04-08T14:45:46+08:00" />
 <meta itemprop="dateModified" content="2023-04-08T14:45:46+08:00" />
-<meta itemprop="wordCount" content="557">
+<meta itemprop="wordCount" content="936">
 <meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary"/>
@@ -285,7 +285,32 @@ flowchart LR
 
 </div>
  </p>
-<h1 id="details-of-audio-based-fault-detection">Details of audio-based Fault Detection</h1>
+<h1 id="rgb-image-based-equipment-classification">RGB Image-based Equipment Classification</h1>
+<p>When the robot patrols the chiller room, it takes many pictures (of <em><strong>chillers</strong></em>, <em><strong>water pumps</strong></em>, <em><strong>temperature dials</strong></em>, and <em><strong>pressure dials</strong></em>) with the help of technology Light Detection and Ranging (LIDAR), which is a method for measuring distances by illuminating the target with laser light and measuring the reflection with a sensor. When the equipment is identified accurately, further diagnosis makes sense. We adopt the modified AlexNet to recognize by the RGB images. The feature extraction remains unchanged, and the part of the classification is rebuilt according to the requirements of the issues to be addressed: to change the output of the fully connected layer to 4 (Number 4 means the things we mentioned before). In model training, only the parameters for the classification are updated. The rotated and mirror are used to enhance the images we have.</p>
+<h1 id="dial-indicator-reading">Dial Indicator Reading</h1>
+<p>It is rare to see dials in recently-built plants, but they are common in some old plants, usually telling engineers the pressure and temperature in pipes. This part can digitize the old plants at a low cost: reading dials and identifying the values.</p>
+<div class="mermaid">
+  
+flowchart TD
+    A["Inital RGB iamge\n(dial)"] --> B["Scaling/Rotating"]
+    B --> B1["R-channel grayscale"]
+    B --> B2["G-channel grayscale"]
+    B --> B3["B-channel grayscale"]
+    B1 & B2 & B3 --> C[AND]
+    C --> D[Extract Pointer]
+    D --> E[Calculate the Angle Between Needle Tip and the Negative Y-Axis]
+    E --> F["Convert Angle to Temperature/Pressure"]
+    F --> G["Fault Detection"]
+
+</div>
+<p>To make the readings more accurate, standardized photography should be acquired before reading the dial. Standardized photography should be obtained before reading the dial to make the readings more accurate. As a side note, the dial should be vertical and centered on the photograph. This part of the algorithm can be mainly divided into three parts and one note:</p>
+<ol>
+<li>identify the position of the pointer.</li>
+<li>calculate the angle between the pointer and the negative y-axis, which help us obtain the angle between the pointer and the zero mark.</li>
+<li>convert the angle between the pointer and the zero mark to the corresponding pressure or temperature value.</li>
+<li>Image scaling/rotating mainly involves adjusting the image&rsquo;s resolution and size without losing the necessary information. When the ratio of height to width of the input image is less than 1, it is designed to rotate 90° counterclockwise.</li>
+</ol>
+<h1 id="audio-based-fault-detection">Audio-based Fault Detection</h1>
 <p>Generally, when a piece of equipment is in good condition, the sound that it generates would smooth. When equipment cannot work well, the sound usually becomes sharp. Our audio-based method utilizes this property. If we can determine the threshold between smooth and sharp sounds, some problems can be detected in time.</p>
 <p>The typical signal process inspires this part. Discrete Fourier Transform (DFT) converts audio from the time domain to the frequency domain. Usually, the audio is a mix of the sound from the target and the sound from other equipment. So separating the target&rsquo;s and other equipment&rsquo;s sounds is essential before analyzing the frequency domain. DFT can help us do this. The result of DFT can give us a clear visualization of the frequency domain.</p>
 <p>In our audio-based detection, we use the ARIMA model, usually applied in financial analysis, to fit the pump high-, medium-, and low-frequency domain signals. If the audio is non-smooth, the d-order difference operation is first performed to turn it into a smooth time series. For smooth audio, the ARIMA model is used directly. So we can identify smooth and other audio.</p>

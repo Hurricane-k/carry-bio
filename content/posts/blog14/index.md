@@ -29,7 +29,35 @@ flowchart LR
 {{</mermaid>}}
 &nbsp;
 
-# Details of audio-based Fault Detection
+# RGB Image-based Equipment Classification
+
+When the robot patrols the chiller room, it takes many pictures (of ***chillers***, ***water pumps***, ***temperature dials***, and ***pressure dials***) with the help of technology Light Detection and Ranging (LIDAR), which is a method for measuring distances by illuminating the target with laser light and measuring the reflection with a sensor. When the equipment is identified accurately, further diagnosis makes sense. We adopt the modified AlexNet to recognize by the RGB images. The feature extraction remains unchanged, and the part of the classification is rebuilt according to the requirements of the issues to be addressed: to change the output of the fully connected layer to 4 (Number 4 means the things we mentioned before). In model training, only the parameters for the classification are updated. The rotated and mirror are used to enhance the images we have.
+
+# Dial Indicator Reading
+
+It is rare to see dials in recently-built plants, but they are common in some old plants, usually telling engineers the pressure and temperature in pipes. This part can digitize the old plants at a low cost: reading dials and identifying the values.
+
+{{<mermaid align="center">}}
+flowchart TD
+    A["Inital RGB iamge\n(dial)"] --> B["Scaling/Rotating"]
+    B --> B1["R-channel grayscale"]
+    B --> B2["G-channel grayscale"]
+    B --> B3["B-channel grayscale"]
+    B1 & B2 & B3 --> C[AND]
+    C --> D[Extract Pointer]
+    D --> E[Calculate the Angle Between Needle Tip and the Negative Y-Axis]
+    E --> F["Convert Angle to Temperature/Pressure"]
+    F --> G["Fault Detection"]
+{{</mermaid>}}
+
+To make the readings more accurate, standardized photography should be acquired before reading the dial. Standardized photography should be obtained before reading the dial to make the readings more accurate. As a side note, the dial should be vertical and centered on the photograph. This part of the algorithm can be mainly divided into three parts and one note:
+
+1. identify the position of the pointer.  
+2. calculate the angle between the pointer and the negative y-axis, which help us obtain the angle between the pointer and the zero mark.  
+3. convert the angle between the pointer and the zero mark to the corresponding pressure or temperature value.
+4. Image scaling/rotating mainly involves adjusting the image's resolution and size without losing the necessary information. When the ratio of height to width of the input image is less than 1, it is designed to rotate 90° counterclockwise.
+
+# Audio-based Fault Detection
 
 Generally, when a piece of equipment is in good condition, the sound that it generates would smooth. When equipment cannot work well, the sound usually becomes sharp. Our audio-based method utilizes this property. If we can determine the threshold between smooth and sharp sounds, some problems can be detected in time.
 
