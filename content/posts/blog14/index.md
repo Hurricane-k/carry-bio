@@ -35,7 +35,7 @@ flowchart LR
     B1 --> B11[equipment photos]
     B1 --> B12[dial photos]
     B11 --> C1[equipment\n classification]
-    B12 --> C2[inspect the pressure\n of pipes]
+    B12 --> C2[inspect the\n temperature\n or pressure\n of pipes]
     B2 --> C3[inspect the temperature\n of equipment]
     B3 --> C4[detect whether or not\n equipment has problems]
 {{</mermaid>}}
