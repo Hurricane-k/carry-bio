@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Carry HE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 08 Apr 2023 14:45:46 +0800</lastBuildDate><atom:link href="https://carrybio.netlify.app/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Apr 2023 10:39:32 +0800</lastBuildDate><atom:link href="https://carrybio.netlify.app/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Attempts to Build a Rule-Based, Relatively Convenient Data-Preprocessing Framework for HVAC Engineering Data</title>
+      <link>https://carrybio.netlify.app/posts/blog15/</link>
+      <pubDate>Thu, 13 Apr 2023 10:39:32 +0800</pubDate>
+      
+      <guid>https://carrybio.netlify.app/posts/blog15/</guid>
+      <description>Background Large-scale Language Model (LLM) is eye-catching all around the world. It outshines other AI branches in reputation. In other words, describing LLM as the masterpiece set is ok. Some ideas derived from LLM also inspire other branches, like Prompt Learning. OpenAI has stirred up the madness that many tech giants put much effort into LLM. I want to talk about Chinese LLM especially. There is no debate that BAIDU WenXiYiYan got its moment recently.</description>
+    </item>
+    
     <item>
       <title>My First Engagement in Fault Detection with the Help of the Inspection Robot in the Chiller Plant</title>
       <link>https://carrybio.netlify.app/posts/blog14/</link>
