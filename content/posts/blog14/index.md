@@ -100,7 +100,7 @@ The typical signal process inspires this part. Discrete Fourier Transform (DFT) 
 In our audio-based detection, we use the ARIMA model, usually applied in financial analysis, to fit the pump high-, medium-, and low-frequency domain signals. If the audio is non-smooth, the d-order difference operation is first performed to turn it into a smooth time series. For smooth audio, the ARIMA model is used directly. So we can identify smooth and other audio.
 
 # Acknowledge
-1. ***<font color=blue>Big big thank you to some of my older research group mates. They made the majority of contributions to this work. Without him, this work cannot be here. They are so nice and patient to help me to start other research independently.</font>*** If you are interested in our study, or if it inspires you, don't hesitate to click [here](https://www.sciencedirect.com/science/article/pii/S0378778821002516) to learn more details.
+1. ***<font color=blue>Big big thank you to some of my older research group mates. They made the majority of contributions to this work. Without him/them, this work cannot be here. They are so nice and patient to help me to start other research independently.</font>*** If you are interested in our study, or if it inspires you, don't hesitate to click [here](https://www.sciencedirect.com/science/article/pii/S0378778821002516) to learn more details.
 2. **Big big thank you to some companies who trust us and sponsor us to start and improve the idea of the inspection robots.**
 3. The first picture cited at the beginning is from [Unsplash.com](https://unsplash.com/) and Photographer [*Crystal Kwok*](https://unsplash.com/@spacexuan).
 
