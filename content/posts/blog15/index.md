@@ -60,6 +60,23 @@ And then we cluster all data based on these features. Here we use k-means and DB
 
 <div align=center><img src="blog15-clusteringresult.jpg"></div>
 
+# Data Preprocessing Framework for HVAC Engineering Data
+
+{{<mermaid>}}
+flowchart TD
+    A[start] --> B[Plant\nHourly Power of all Chillers\nHourly Power of all Cooling Water Pumps\nHourly Power of all Chilled Water Pumps\nHourly Power of Cooling Tower Fans]
+    B --> C1[Hourly Power of Chiller #1, #2,...]
+    B --> C2[Hourly Power of Water Pump #1, #2,...]
+    B --> C3[Hourly Power of Cooling Tower\nFan #1, #2,...]
+    C1 --> D1[on/off of\nChiler #1, #2,...]
+    C2 --> D2[frequency of Water\nPump #1, #2,...]
+    C3 --> D3[frequency of\nFan #1, #2,...]
+    D1 & D2 & D3 --> E[System\nthermal load\nDelta-T chilled water\nDelta-T cooling water\ncihlled water flow\ncooling water flow]
+    E --> F1[Optional #1\nWeather Data]
+    E --> F2[Optioanl #2\nwater temperature of Chiller #1, #2,...\nwater flow of Chiller #1, #2,...]
+    E --> F3[Optional #3\nmain water temperature]
+{{</mermaid>}}
+
 # Reference
 
 1. [The Chinese online comunities are dying out, and who is killing the future of China's AI? [What is the obstacle of domestic ChatGPT]](https://www.bilibili.com/video/BV1Nm4y1z7AT?share_source=copy_web)
