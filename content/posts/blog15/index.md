@@ -31,10 +31,36 @@ The part is limited to mainland China due to resource limitations, so the follow
 
 These research objects are located in different climate zones. Although we don't care about the climate impact on data quality, the diverse locations indicate various construction contracts on building energy monitoring platforms, which can demonstrate the diversity in data quality. In our research, we deliberately avoid model platforms because they will affect our judgment on the status quo of the platforms in markets.
 
-First, I'll utilize a helpful gadget to visualize the data quality. One strip means one data. For example, one data here can be the hourly energy consumption of a piece of equipment or the real-time frequency of a water pump. Anyway, one data is a time series. The data label shows on the top of every strip. If you wanna know the rule of naming, you can find detailed information [here](https://www.sciencedirect.com/science/article/pii/S0378778822005436).
+First, I'll utilize [a helpful gadget](https://github.com/ResidentMario/missingno) to visualize the data quality. One strip means one data. For example, one data here can be the hourly energy consumption of a piece of equipment or the real-time frequency of a water pump. Anyway, one data is a time series. The data label shows on the top of every strip. If you wanna know the rule of naming, you can find detailed information [here](https://www.sciencedirect.com/science/article/pii/S0378778822005436).
 
-These diagrams are derived from one building. Although this building is picked up randomly to visualization, you might say it is not convinving enough and it cannot represent the vast majority of buildings all around the world.
+<div align=center><img src="blog15-missingno.jpg"></div>
+
+Clearly, these data are varying in quality. For example, chillers can get quite good maintanence because their data are pretty consistent and stable. There is no much missing. Anyway, chillers accounts for the vast majority of electricity consumption in HVAC systems, so they can get priority. Instead, cooling towers don't get the enough attention and you can get it from the complete data missing in `hourly power`. That makes sense because they are not really energy-consuming.
+
+These diagrams are derived from one building. Although this building is picked up randomly to visualization, you might say it is not convinving enough and it cannot represent the vast majority of buildings all around the world, but that can give us a glimpse of the status quo of HVAC engineering data, right?
+
+In order to make our analysis convincing, we plan to extract some time-series-related features and using clustering algorithms to classify all kinds of data, which might give us an overview: what kind of data is better, and what kind is worst.
+
+# Extraction and Clustering
+
+The next table list a few features we use. Their goals are to find if there are certain relationship between data missing and data themselves. 
+1. Some data alwalys have complete data missing. 
+2. The consistent and long missing happen to certain kind of data (including `hourly power of a cooling tower fan` we mentioned before). 
+3. The data missing is intermittent in certain kinds of data.
+
+| No. | Features |
+| --- | --- |
+| 1   | the overall missing rate |
+| 2   | the minimum time window |
+| 3   | the average length of time window |
+| 4   | the day of the week with maximum data missing rate (Mon, Tue, Wed, Thr, Fri, Sat, or Sun) |
+| ... | ... |
+
+And then we cluster all data based on these features. Here we use k-means and DBSCAN that depend on different theories. We are about to compare both results. Finally, we will analyze these data labels for each cluster. Before that, I'm gonna explain data naming rule: there are three parts: `Equipment Type_(Equipment No.)_data`. I will give you example, `CH_1_Tchwr` means the temperature of return chilled water of chiller #1. `CWPs_HourlyP` means means the hourly power of all cooling water pumps. When we analyze labels, `Equipment No.` will be omitted when it comes to one piece of equipment. Finally, we can find that the hourly power of equipment group is good and stable in quality, which means they can be foundation to correct other data.
+
+<div align=center><img src="blog15-clusteringresult.jpg"></div>
 
 # Reference
 
 1. [The Chinese online comunities are dying out, and who is killing the future of China's AI? [What is the obstacle of domestic ChatGPT]](https://www.bilibili.com/video/BV1Nm4y1z7AT?share_source=copy_web)
+2. [GitHub - ResidentMario/missingno: Missing data visualization module for Python.](https://github.com/ResidentMario/missingno)
