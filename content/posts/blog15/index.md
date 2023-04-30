@@ -3,6 +3,7 @@ title: "My Attempts to Build a Rule-Based, Relatively Convenient Data-Preprocess
 date: 2023-04-13T10:39:32+08:00
 draft: false
 mermaid: true
+math: true
 author: Carry HE
 ---
 
@@ -78,6 +79,10 @@ flowchart TD
     E --> F2[Optioanl #2\nwater temperature of Chiller #1, #2,...\nwater flow of Chiller #1, #2,...]
     E --> F3[Optional #3\nmain water temperature]
 {{</mermaid>}}
+
+As we all know in the above section, the energy consumption of equipment groups are put in the first place. These data should be preprocessed manually, which ensures reliabiltiy and effectiveness. Next, <font color=orange>**the laws of physics**</font> will be utilized to proprocess other data. The summation relationship will be will used to correct the energy consumption of a piece of equipment, which can be written as:
+
+$$E_{all}=\sum_{i=1}^{n}e_i$$
 
 # Reference
 

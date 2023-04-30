@@ -118,7 +118,7 @@
   <meta itemprop="name" content="My Attempts to Build a Rule-Based, Relatively Convenient Data-Preprocessing Framework for HVAC Engineering Data">
 <meta itemprop="description" content="Background Large-scale Language Model (LLM) is eye-catching all around the world. It outshines other AI branches in reputation. In other words, describing LLM as the masterpiece set is ok. Some ideas derived from LLM also inspire other branches, like Prompt Learning. OpenAI has stirred up the madness that many tech giants put much effort into LLM. I want to talk about Chinese LLM especially. There is no debate that BAIDU WenXiYiYan got its moment recently."><meta itemprop="datePublished" content="2023-04-13T10:39:32+08:00" />
 <meta itemprop="dateModified" content="2023-04-13T10:39:32+08:00" />
-<meta itemprop="wordCount" content="1133">
+<meta itemprop="wordCount" content="1199">
 <meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary"/>
@@ -129,6 +129,27 @@
   
 
   
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+
 
   
   
@@ -347,6 +368,8 @@ flowchart TD
     E --> F3[Optional #3\nmain water temperature]
 
 </div>
+<p>As we all know in the above section, the energy consumption of equipment groups are put in the first place. These data should be preprocessed manually, which ensures reliabiltiy and effectiveness. Next, <font color=orange><strong>the laws of physics</strong></font> will be utilized to proprocess other data. The summation relationship will be will used to correct the energy consumption of a piece of equipment, which can be written as:</p>
+<p>$$E_{all}=\sum_{i=1}^{n}e_i$$</p>
 <h1 id="reference">Reference</h1>
 <ol>
 <li><a href="https://www.bilibili.com/video/BV1Nm4y1z7AT?share_source=copy_web">The Chinese online comunities are dying out, and who is killing the future of China&rsquo;s AI? [What is the obstacle of domestic ChatGPT]</a></li>
