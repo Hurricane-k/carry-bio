@@ -118,7 +118,7 @@
   <meta itemprop="name" content="My Attempts to Build a Rule-Based, Relatively Convenient Data-Preprocessing Framework for HVAC Engineering Data">
 <meta itemprop="description" content="Background Large-scale Language Model (LLM) is eye-catching all around the world. It outshines other AI branches in reputation. In other words, describing LLM as the masterpiece set is ok. Some ideas derived from LLM also inspire other branches, like Prompt Learning. OpenAI has stirred up the madness that many tech giants put much effort into LLM. I want to talk about Chinese LLM especially. There is no debate that BAIDU WenXiYiYan got its moment recently."><meta itemprop="datePublished" content="2023-04-13T10:39:32+08:00" />
 <meta itemprop="dateModified" content="2023-04-13T10:39:32+08:00" />
-<meta itemprop="wordCount" content="1523">
+<meta itemprop="wordCount" content="1685">
 <meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary"/>
@@ -368,7 +368,7 @@ flowchart TD
     E --> F3[Optional #3\nmain water temperature]
 
 </div>
-<p>As we all know in the above section, the energy consumption of equipment groups are put in the first place. These data should be preprocessed manually, which ensures reliabiltiy and effectiveness. Next, <font color=orange><strong>the laws of physics</strong></font> will be utilized to proprocess other data. The summation relationship will be will used to correct the energy consumption of a piece of equipment, which can be written as:</p>
+<p>As we all know in the above section, the energy consumption of equipment groups are put in the first place. These data should be preprocessed manually, which ensures reliabiltiy and effectiveness. Next, <strong><font color=orange>the laws of physics</font></strong> will be utilized to proprocess other data. The summation relationship will be will used to correct the energy consumption of a piece of equipment, which can be written as:</p>
 <p>$$E_{all}=\sum_{i=1}^{n}e_i$$</p>
 <p>where $E_{all}$ is the energy consumption of equipment group, like <code>CHs_HourlyPower</code>. $e_i$ means the energy consumption of the <em>i</em>th piece of equipment, like <code>CH_1_HourlyPower</code>. <em>n</em> is the number of equipment, for example, there are <em>n</em> pieces of chillers.</p>
 <p>Use the above Equation can correct the energy consumption of a piece of chiller, water pump or cooling tower fan.</p>
@@ -381,6 +381,13 @@ $$</div>
 <p>$$(\frac{f}{f_{nominal}})^3=\frac{e_i}{E}$$</p>
 <p>where $f$ is the frequency to be corrected, and $f_{nominal}$ is the nominal frequency, usually is $50Hz$ in Mainland, China. It can be changed according to the region where you are.</p>
 <p>Other system data. We can use <strong>laws of conservation of energy</strong> to correct these together. There is drawback you need to notice: if the Equation doesn&rsquo;t work, there are at least one kind of data goes wrong. If only one kind of data is abnormal, it is easier to handle. Under other circumstances, that will depend on some expertises. However, there is another alternative, you can delete all data at the moment, which may lead to sacrifice some data that shouldn&rsquo;t have been deleted. Other options will depend on your situation: if you have them, go ahead. If you don&rsquo;t, just forget it.</p>
+<h1 id="case-study">Case Study</h1>
+<p>I plan to end up with a case study, but I am not gonna to show all diagrams to verify our framework, if you can interested in this, you can link <a href="https://www.sciencedirect.com/science/article/pii/S0378778822005436">here</a>. For a commerical complex, We first deal with the energy consumption of equipment groups. In this case, the main foucs is on removing zero values to show the real data distribution.</p>
+<div align=center><img src="blog15-casestudyallequipment.jpg"></div>
+<p>Next, we will deal with the energy consumption of a piece of equipment. I use chiller to show the result. By the way, the status of chiller will be handled following the energy consumption of a piece of equipment. About the frequency, the main problem is <strong>the mismatch between labels and data</strong> other than the data missing.</p>
+<div align=center><img src="blog15-casestudyeachchiller.jpg"></div>
+<p>Finally, we use the relationship of the number of chillers under the operation and load to show that the corrected data can reflect the real operation of a building. Generally, we will turn on more chillers when load becomes more.</p>
+<div align=center><img src="blog15-casestudyresult.jpg"></div>
 <h1 id="reference">Reference</h1>
 <ol>
 <li><a href="https://www.bilibili.com/video/BV1Nm4y1z7AT?share_source=copy_web">The Chinese online comunities are dying out, and who is killing the future of China&rsquo;s AI? [What is the obstacle of domestic ChatGPT]</a></li>

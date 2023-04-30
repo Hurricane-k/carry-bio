@@ -80,7 +80,7 @@ flowchart TD
     E --> F3[Optional #3\nmain water temperature]
 {{</mermaid>}}
 
-As we all know in the above section, the energy consumption of equipment groups are put in the first place. These data should be preprocessed manually, which ensures reliabiltiy and effectiveness. Next, <font color=orange>**the laws of physics**</font> will be utilized to proprocess other data. The summation relationship will be will used to correct the energy consumption of a piece of equipment, which can be written as:
+As we all know in the above section, the energy consumption of equipment groups are put in the first place. These data should be preprocessed manually, which ensures reliabiltiy and effectiveness. Next, **<font color=orange>the laws of physics</font>** will be utilized to proprocess other data. The summation relationship will be will used to correct the energy consumption of a piece of equipment, which can be written as:
 
 $$E_{all}=\sum_{i=1}^{n}e_i$$
 
@@ -103,6 +103,20 @@ $$(\frac{f}{f_{nominal}})^3=\frac{e_i}{E}$$
 where $f$ is the frequency to be corrected, and $f_{nominal}$ is the nominal frequency, usually is $50Hz$ in Mainland, China. It can be changed according to the region where you are.
 
 Other system data. We can use **laws of conservation of energy** to correct these together. There is drawback you need to notice: if the Equation doesn't work, there are at least one kind of data goes wrong. If only one kind of data is abnormal, it is easier to handle. Under other circumstances, that will depend on some expertises. However, there is another alternative, you can delete all data at the moment, which may lead to sacrifice some data that shouldn't have been deleted. Other options will depend on your situation: if you have them, go ahead. If you don't, just forget it.
+
+# Case Study
+
+I plan to end up with a case study, but I am not gonna to show all diagrams to verify our framework, if you can interested in this, you can link [here](https://www.sciencedirect.com/science/article/pii/S0378778822005436). For a commerical complex, We first deal with the energy consumption of equipment groups. In this case, the main foucs is on removing zero values to show the real data distribution.
+
+<div align=center><img src="blog15-casestudyallequipment.jpg"></div>
+
+Next, we will deal with the energy consumption of a piece of equipment. I use chiller to show the result. By the way, the status of chiller will be handled following the energy consumption of a piece of equipment. About the frequency, the main problem is **the mismatch between labels and data** other than the data missing.
+
+<div align=center><img src="blog15-casestudyeachchiller.jpg"></div>
+
+Finally, we use the relationship of the number of chillers under the operation and load to show that the corrected data can reflect the real operation of a building. Generally, we will turn on more chillers when load becomes more.
+
+<div align=center><img src="blog15-casestudyresult.jpg"></div>
 
 # Reference
 
