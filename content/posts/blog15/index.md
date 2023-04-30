@@ -60,6 +60,8 @@ And then we cluster all data based on these features. Here we use k-means and DB
 
 <div align=center><img src="blog15-clusteringresult.jpg"></div>
 
+Let me explain the above diagram a little bit. The left and the right pies are the worst and best situations respectively. For example, `CWPs_HourlyPower` in the red left circle is zeros means that the total missing rate of `CWPs_HourlyPower` is zero in the worst situation (in all buildings / one `CPWs_HourlyPower`corresponding to one building). The above description give us a hunch that we can use the energy consumption of quipment groups (`CHs_HourlyPower`, `CHWPs_HourlyPower`, `CWPs_HourlyPower`, `CTFs_HourlyPower`) as foundations to correct other data.
+
 # Data Preprocessing Framework for HVAC Engineering Data
 
 {{<mermaid>}}

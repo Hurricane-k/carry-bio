@@ -118,7 +118,7 @@
   <meta itemprop="name" content="My Attempts to Build a Rule-Based, Relatively Convenient Data-Preprocessing Framework for HVAC Engineering Data">
 <meta itemprop="description" content="Background Large-scale Language Model (LLM) is eye-catching all around the world. It outshines other AI branches in reputation. In other words, describing LLM as the masterpiece set is ok. Some ideas derived from LLM also inspire other branches, like Prompt Learning. OpenAI has stirred up the madness that many tech giants put much effort into LLM. I want to talk about Chinese LLM especially. There is no debate that BAIDU WenXiYiYan got its moment recently."><meta itemprop="datePublished" content="2023-04-13T10:39:32+08:00" />
 <meta itemprop="dateModified" content="2023-04-13T10:39:32+08:00" />
-<meta itemprop="wordCount" content="1051">
+<meta itemprop="wordCount" content="1133">
 <meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary"/>
@@ -329,6 +329,7 @@
 </table>
 <p>And then we cluster all data based on these features. Here we use k-means and DBSCAN that depend on different theories. We are about to compare both results. Finally, we will analyze these data labels for each cluster. Before that, I&rsquo;m gonna explain data naming rule: there are three parts: <code>Equipment Type_(Equipment No.)_data</code>. I will give you example, <code>CH_1_Tchwr</code> means the temperature of return chilled water of chiller #1. <code>CWPs_HourlyP</code> means means the hourly power of all cooling water pumps. When we analyze labels, <code>Equipment No.</code> will be omitted when it comes to one piece of equipment. Finally, we can find that the hourly power of equipment group is good and stable in quality, which means they can be foundation to correct other data.</p>
 <div align=center><img src="blog15-clusteringresult.jpg"></div>
+<p>Let me explain the above diagram a little bit. The left and the right pies are the worst and best situations respectively. For example, <code>CWPs_HourlyPower</code> in the red left circle is zeros means that the total missing rate of <code>CWPs_HourlyPower</code> is zero in the worst situation (in all buildings / one <code>CPWs_HourlyPower</code>corresponding to one building). The above description give us a hunch that we can use the energy consumption of quipment groups (<code>CHs_HourlyPower</code>, <code>CHWPs_HourlyPower</code>, <code>CWPs_HourlyPower</code>, <code>CTFs_HourlyPower</code>) as foundations to correct other data.</p>
 <h1 id="data-preprocessing-framework-for-hvac-engineering-data">Data Preprocessing Framework for HVAC Engineering Data</h1>
 <div class="mermaid">
   
