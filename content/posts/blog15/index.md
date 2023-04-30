@@ -84,6 +84,26 @@ As we all know in the above section, the energy consumption of equipment groups 
 
 $$E_{all}=\sum_{i=1}^{n}e_i$$
 
+where $E_{all}$ is the energy consumption of equipment group, like `CHs_HourlyPower`. $e_i$ means the energy consumption of the *i*th piece of equipment, like `CH_1_HourlyPower`. *n* is the number of equipment, for example, there are *n* pieces of chillers.
+
+Use the above Equation can correct the energy consumption of a piece of chiller, water pump or cooling tower fan.
+
+Next, we can use threshold to correct the `on/off_status` about chiller.
+
+<div>$$
+on/off status =\begin{cases} 0, e_i \lt \alpha E_{nominal} \\ 1,e_i \geq \alpha E_{nominal} \end{cases}
+$$</div>
+
+where $0$ is the off status and $1$ is the on status, $\alpha$ is the threshold you can set according to the reality, $E_{nominal}$ is the corresponding nominal capacity of a piece of equipment, like chiller.
+
+In terms of frequency of a piece of equipment, we usually replace real-time frequency with average frequency because the frequency cannot be changed too much frequently which will cause some safety issue, so you can choose the average frequency within 15 minutes or 1 hour as real-time frequency. We also use the cubic relationship of energy consumption and frequency to correct the frequency, which can be expressed as:
+
+$$(\frac{f}{f_{nominal}})^3=\frac{e_i}{E}$$
+
+where $f$ is the frequency to be corrected, and $f_{nominal}$ is the nominal frequency, usually is $50Hz$ in Mainland, China. It can be changed according to the region where you are.
+
+Other system data. We can use **laws of conservation of energy** to correct these together. There is drawback you need to notice: if the Equation doesn't work, there are at least one kind of data goes wrong. If only one kind of data is abnormal, it is easier to handle. Under other circumstances, that will depend on some expertises. However, there is another alternative, you can delete all data at the moment, which may lead to sacrifice some data that shouldn't have been deleted. Other options will depend on your situation: if you have them, go ahead. If you don't, just forget it.
+
 # Reference
 
 1. [The Chinese online comunities are dying out, and who is killing the future of China's AI? [What is the obstacle of domestic ChatGPT]](https://www.bilibili.com/video/BV1Nm4y1z7AT?share_source=copy_web)
