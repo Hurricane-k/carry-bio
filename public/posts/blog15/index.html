@@ -118,7 +118,7 @@
   <meta itemprop="name" content="My Attempts to Build a Rule-Based, Relatively Convenient Data-Preprocessing Framework for HVAC Engineering Data">
 <meta itemprop="description" content="Background Large-scale Language Model (LLM) is eye-catching all around the world. It outshines other AI branches in reputation. In other words, describing LLM as the masterpiece set is ok. Some ideas derived from LLM also inspire other branches, like Prompt Learning. OpenAI has stirred up the madness that many tech giants put much effort into LLM. I want to talk about Chinese LLM especially. There is no debate that BAIDU WenXiYiYan got its moment recently."><meta itemprop="datePublished" content="2023-04-13T10:39:32+08:00" />
 <meta itemprop="dateModified" content="2023-04-13T10:39:32+08:00" />
-<meta itemprop="wordCount" content="1685">
+<meta itemprop="wordCount" content="1761">
 <meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary"/>
@@ -381,6 +381,8 @@ $$</div>
 <p>$$(\frac{f}{f_{nominal}})^3=\frac{e_i}{E}$$</p>
 <p>where $f$ is the frequency to be corrected, and $f_{nominal}$ is the nominal frequency, usually is $50Hz$ in Mainland, China. It can be changed according to the region where you are.</p>
 <p>Other system data. We can use <strong>laws of conservation of energy</strong> to correct these together. There is drawback you need to notice: if the Equation doesn&rsquo;t work, there are at least one kind of data goes wrong. If only one kind of data is abnormal, it is easier to handle. Under other circumstances, that will depend on some expertises. However, there is another alternative, you can delete all data at the moment, which may lead to sacrifice some data that shouldn&rsquo;t have been deleted. Other options will depend on your situation: if you have them, go ahead. If you don&rsquo;t, just forget it.</p>
+<p>$$Q_{cw} c_p \triangle t_{cw} = Q_{chw} c_p \triangle t_{chw}$$</p>
+<p>where $Q_{cw}$ is the cooling water flow in main pipe, $Q_{chw}$ is the chilled water flow in main pipe, $c_p$ is specific heat capacity, $\triangle t_{cw}$ is the temperature difference between return and supply cooling water in main pipe, $\triangle t_{chw}$ is the temperature difference between supply and return chilled water in main pipe. There are six variants to be corrected, so this data preprocessing needs expertise.</p>
 <h1 id="case-study">Case Study</h1>
 <p>I plan to end up with a case study, but I am not gonna to show all diagrams to verify our framework, if you can interested in this, you can link <a href="https://www.sciencedirect.com/science/article/pii/S0378778822005436">here</a>. For a commerical complex, We first deal with the energy consumption of equipment groups. In this case, the main foucs is on removing zero values to show the real data distribution.</p>
 <div align=center><img src="blog15-casestudyallequipment.jpg"></div>

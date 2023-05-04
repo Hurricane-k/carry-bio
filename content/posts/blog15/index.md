@@ -104,6 +104,10 @@ where $f$ is the frequency to be corrected, and $f_{nominal}$ is the nominal fre
 
 Other system data. We can use **laws of conservation of energy** to correct these together. There is drawback you need to notice: if the Equation doesn't work, there are at least one kind of data goes wrong. If only one kind of data is abnormal, it is easier to handle. Under other circumstances, that will depend on some expertises. However, there is another alternative, you can delete all data at the moment, which may lead to sacrifice some data that shouldn't have been deleted. Other options will depend on your situation: if you have them, go ahead. If you don't, just forget it.
 
+$$Q_{cw} c_p \triangle t_{cw} = Q_{chw} c_p \triangle t_{chw}$$
+
+where $Q_{cw}$ is the cooling water flow in main pipe, $Q_{chw}$ is the chilled water flow in main pipe, $c_p$ is specific heat capacity, $\triangle t_{cw}$ is the temperature difference between return and supply cooling water in main pipe, $\triangle t_{chw}$ is the temperature difference between supply and return chilled water in main pipe. There are six variants to be corrected, so this data preprocessing needs expertise.
+
 # Case Study
 
 I plan to end up with a case study, but I am not gonna to show all diagrams to verify our framework, if you can interested in this, you can link [here](https://www.sciencedirect.com/science/article/pii/S0378778822005436). For a commerical complex, We first deal with the energy consumption of equipment groups. In this case, the main foucs is on removing zero values to show the real data distribution.
