@@ -118,7 +118,7 @@
   <meta itemprop="name" content="My Attempts to Build a Rule-Based, Relatively Convenient Data-Preprocessing Framework for HVAC Engineering Data">
 <meta itemprop="description" content="Background Large-scale Language Model (LLM) is eye-catching all around the world. It outshines other AI branches in reputation. In other words, describing LLM as the masterpiece set is ok. Some ideas derived from LLM also inspire other branches, like Prompt Learning. OpenAI has stirred up the madness that many tech giants put much effort into LLM. I want to talk about Chinese LLM especially. There is no debate that BAIDU WenXiYiYan got its moment recently."><meta itemprop="datePublished" content="2023-04-13T10:39:32+08:00" />
 <meta itemprop="dateModified" content="2023-04-13T10:39:32+08:00" />
-<meta itemprop="wordCount" content="1761">
+<meta itemprop="wordCount" content="1822">
 <meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary"/>
@@ -388,7 +388,10 @@ $$</div>
 <div align=center><img src="blog15-casestudyallequipment.jpg"></div>
 <p>Next, we will deal with the energy consumption of a piece of equipment. I use chiller to show the result. By the way, the status of chiller will be handled following the energy consumption of a piece of equipment. About the frequency, the main problem is <strong>the mismatch between labels and data</strong> other than the data missing.</p>
 <div align=center><img src="blog15-casestudyeachchiller.jpg"></div>
-<p>Finally, we use the relationship of the number of chillers under the operation and load to show that the corrected data can reflect the real operation of a building. Generally, we will turn on more chillers when load becomes more.</p>
+<p>The following two diagrams illustrate the corresponding relationship before and after data preprocessing. Taken chilled water pump as example, the ideal situation is the cubic relationship in diagonal sub-plots(<strong><font color=red>red dotted bold box</font></strong>). The reason why no obvious relationship in Chilled Water Pump #1 is that #1 is a backup pump, no frequent use.</p>
+<div align=center><img src="blog15-casestudychwpfreq-a.jpg"></div>
+<div align=center><img src="blog15-casestudychwpfreq-b.jpg"></div>
+<p>Finally, we use the relationship of the number of chillers under the operation and load to show that the corrected data can reflect the real operation in this building. Generally, we will turn on more chillers when load becomes more, which is a common sense in this field.</p>
 <div align=center><img src="blog15-casestudyresult.jpg"></div>
 <h1 id="reference">Reference</h1>
 <ol>

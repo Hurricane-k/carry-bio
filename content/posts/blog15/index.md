@@ -118,7 +118,13 @@ Next, we will deal with the energy consumption of a piece of equipment. I use ch
 
 <div align=center><img src="blog15-casestudyeachchiller.jpg"></div>
 
-Finally, we use the relationship of the number of chillers under the operation and load to show that the corrected data can reflect the real operation of a building. Generally, we will turn on more chillers when load becomes more.
+The following two diagrams illustrate the corresponding relationship before and after data preprocessing. Taken chilled water pump as example, the ideal situation is the cubic relationship in diagonal sub-plots(**<font color=red>red dotted bold box</font>**). The reason why no obvious relationship in Chilled Water Pump #1 is that #1 is a backup pump, no frequent use.
+
+<div align=center><img src="blog15-casestudychwpfreq-a.jpg"></div>
+
+<div align=center><img src="blog15-casestudychwpfreq-b.jpg"></div>
+
+Finally, we use the relationship of the number of chillers under the operation and load to show that the corrected data can reflect the real operation in this building. Generally, we will turn on more chillers when load becomes more, which is a common sense in this field.
 
 <div align=center><img src="blog15-casestudyresult.jpg"></div>
 
