@@ -7,6 +7,7 @@ math: true
 author: Carry HE
 ---
 
+<div align=center><img src="blog15-cover.jpg"></div>
 
 # Background
 
@@ -127,6 +128,11 @@ The following two diagrams illustrate the corresponding relationship before and 
 Finally, we use the relationship of the number of chillers under the operation and load to show that the corrected data can reflect the real operation in this building. Generally, we will turn on more chillers when load becomes more, which is a common sense in this field.
 
 <div align=center><img src="blog15-casestudyresult.jpg"></div>
+
+# Acknowledge
+1. The work cannot be done without the help of my supervisor and my research group mates.
+2. Big big thanks for the company providing massive engineering data as a foundation of this research work.
+3. The first picture cited at the beginning is from [Unsplash.com](https://unsplash.com/) and Photographer [*Alina Grubnyak*](https://unsplash.com/@alinnnaaaa).
 
 # Reference
 
