@@ -3,6 +3,7 @@ title: "How to Build a Loop to Train Agents in Virtual Environments for Building
 date: 2023-03-19T15:42:13+08:00
 draft: false
 mermaid: true
+math: true
 author: Carry HE
 ---
 
@@ -71,6 +72,20 @@ The discussion range will be limited in some state-of-art algorithms. [scikit-le
 ## Connection
 
 This part is not my strong suit because my preference is option #1 in the above graph. I have a little knowledge in this aspect: [FMPy](https://github.com/CATIA-Systems/FMPy) and [FMI](https://fmi-standard.org/). Long story short. Functional Mock-up Units are something you need.
+
+But option #1 also have something really annoying to handle: decouple the parameters. To simplify this concept, one parameter can be effected by more than one chillers. It can be an input of equipment #1 and output of equipment #2. I'll give you a control task to appreciate that:
+
+You wanna control the frequency of all cooling tower fans for the sake of energy efficiency:
+
+   1. action: the (uniform) frequency of cooling tower fans $f$
+  
+   2. objective: $\underset{f} { \operatorname {arg\min}} \ {EnergyConsumption_{Chillers+CoolingTowerFans}}$
+  
+   3. subject: make sure the thermal comfort $s.t. \ T_{chs}=7 \ Celsius$
+  
+There two kinds of equipment in *objecive*, so two kinds of modules are involved in this virtual environment. two parameters `T_cwr` and `T_cws` (temperature of return/supply cooling water) will effect these two modules, they can be regarded as inputs in cooling tower fan model and outputs in chillers. Other thing you need to consider is the laws of energy conversion. the amount of heat transfer should be the same in both cooling and chilled water loop. I plan to illustrate the issue about decoupling. The blod red boxes are something you need to consider how to determine because they are connected each other.
+
+<div align=center><img src="blog12-decoupleillustrative.jpg" width="1000"></div>
 
 # Literature (A Collection of Case Study)
 

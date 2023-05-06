@@ -118,7 +118,7 @@
   <meta itemprop="name" content="How to Build a Loop to Train Agents in Virtual Environments for Building Energy-Efficiency Improvement">
 <meta itemprop="description" content="Background Researchers have proven the potential of (Deep) Reinforcement Learning in improving building energy efficiency. The maturity of digital infrastructure motivates more and more companies to embark on deploying RL / DRL in reality because we are stuck in PID control for so long! During my internship, I summarized how to train RL in a virtual environment that is created by the actual building, which sounds like a hot concept &lsquo;MPC (Model Predictive Control)&rsquo;, but they are essentially different."><meta itemprop="datePublished" content="2023-03-19T15:42:13+08:00" />
 <meta itemprop="dateModified" content="2023-03-19T15:42:13+08:00" />
-<meta itemprop="wordCount" content="870"><meta itemprop="image" content="https://carrybio.netlify.app/posts/blog12/blog12-cover.jpg">
+<meta itemprop="wordCount" content="1065"><meta itemprop="image" content="https://carrybio.netlify.app/posts/blog12/blog12-cover.jpg">
 <meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary_large_image"/>
@@ -130,6 +130,27 @@
   
 
   
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+
 
   
   
@@ -326,6 +347,21 @@ sequenceDiagram
 <p>The discussion range will be limited in some state-of-art algorithms. <a href="https://scikit-learn.org/stable/">scikit-learn</a> is one of the most popular python packages I guess. Maybe you can find something useful for you. Here I want make a cursory introduction on some (D)RL third party package, like <a href="https://stable-baselines.readthedocs.io/en/master/">Stable-Baselines</a>, <a href="https://github.com/keras-rl/keras-rl">keras-rl</a>, <a href="https://mushroomrl.readthedocs.io/en/latest/">MushroomRL</a>, etc. If these foregoing packages cannot meet your requirements, you change it.</p>
 <h2 id="connection">Connection</h2>
 <p>This part is not my strong suit because my preference is option #1 in the above graph. I have a little knowledge in this aspect: <a href="https://github.com/CATIA-Systems/FMPy">FMPy</a> and <a href="https://fmi-standard.org/">FMI</a>. Long story short. Functional Mock-up Units are something you need.</p>
+<p>But option #1 also have something really annoying to handle: decouple the parameters. To simplify this concept, one parameter can be effected by more than one chillers. It can be an input of equipment #1 and output of equipment #2. I&rsquo;ll give you a control task to appreciate that:</p>
+<p>You wanna control the frequency of all cooling tower fans for the sake of energy efficiency:</p>
+<ol>
+<li>
+<p>action: the (uniform) frequency of cooling tower fans $f$</p>
+</li>
+<li>
+<p>objective: $\underset{f} { \operatorname {arg\min}} \ {EnergyConsumption_{Chillers+CoolingTowerFans}}$</p>
+</li>
+<li>
+<p>subject: make sure the thermal comfort $s.t. \ T_{chs}=7 \ Celsius$</p>
+</li>
+</ol>
+<p>There two kinds of equipment in <em>objecive</em>, so two kinds of modules are involved in this virtual environment. two parameters <code>T_cwr</code> and <code>T_cws</code> (temperature of return/supply cooling water) will effect these two modules, they can be regarded as inputs in cooling tower fan model and outputs in chillers. Other thing you need to consider is the laws of energy conversion. the amount of heat transfer should be the same in both cooling and chilled water loop. I plan to illustrate the issue about decoupling. The blod red boxes are something you need to consider how to determine because they are connected each other.</p>
+<div align=center><img src="blog12-decoupleillustrative.jpg" width="1000"></div>
 <h1 id="literature-a-collection-of-case-study">Literature (A Collection of Case Study)</h1>
 <p>I plan to end up with a collection of case study. Many previous papers have verified the deployment of RL in real or virtual environments. I pick up some case study to share with you all. I summarize them following these criteria: environment, method, building type, system type, and control (goal).</p>
 <div align=center><img src="blog12-literature1.jpg" width="1000"></div>
