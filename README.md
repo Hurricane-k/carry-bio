@@ -23,7 +23,7 @@ I will talk about my archive in an abstract. If you were familiar with my past m
 
 Another field is closely related to enpower Building Energy Efficiency with advanced mathematical tools.
 
-1. I tried to explore [the status quo of big engineering HVAC data](https://carrybio.netlify.app/posts/blog11/) that is the source of everything, and proposed [a relatively generic framework for data preprocessing]((https://carrybio.netlify.app/posts/blog15/).
+1. I tried to explore [the status quo of big engineering HVAC data](https://carrybio.netlify.app/posts/blog11/) that is the source of everything, and proposed [a relatively generic framework for data preprocessing](https://carrybio.netlify.app/posts/blog15/).
 
 2. Internship encourages me to explore [reinforcement-learning](https://carrybio.netlify.app/posts/blog14/) or [other methods](https://carrybio.netlify.app/posts/blog13/) to improve building energy efficiency or fault detection and diagnosis.
 
