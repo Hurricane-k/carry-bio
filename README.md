@@ -3,8 +3,6 @@
 <h5>https://carrybio.netlify.app/</h5>
 </div>
 
-
-
 ## Preface
 
 Nice to meet you here. :smiley: I'm Carry. This is my website to record something I wanna share with you. You can regard it as my archive where I write down my experience and works during my academic journey at least right now. 
@@ -27,7 +25,7 @@ Another field is closely related to enpower Building Energy Efficiency with adva
 
 1. I tried to explore [the status quo of big engineering HVAC data](https://carrybio.netlify.app/posts/blog11/) that is the source of everything, and proposed [a relatively generic framework for data preprocessing]((https://carrybio.netlify.app/posts/blog15/).
 
-2. Internship encourages me to explore [reinforcement-learning](https://carrybio.netlify.app/posts/blog14/) or [other methods]((https://carrybio.netlify.app/posts/blog13/) to improve building energy efficiency or fault detection and diagnosis.
+2. Internship encourages me to explore [reinforcement-learning](https://carrybio.netlify.app/posts/blog14/) or [other methods](https://carrybio.netlify.app/posts/blog13/) to improve building energy efficiency or fault detection and diagnosis.
 
 ## Future Plan
 
