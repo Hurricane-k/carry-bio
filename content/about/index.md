@@ -5,3 +5,6 @@ draft: false
 ---
 
 self-introduction
+
+OS: TOO BUSY TO UPDATE THIS PART :-( SORRY ABOUT THAT
+
