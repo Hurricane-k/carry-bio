@@ -87,6 +87,14 @@ There two kinds of equipment in *objecive*, so two kinds of modules are involved
 
 <div align=center><img src="blog12-decoupleillustrative.jpg" width="1000"></div>
 
+## Example
+
+To be more understandable, I made a [GitHub repository](https://github.com/Hurricane-k/BuildingEfficiencyAgent_in_VirtualEnv) to examplify the above, you can [click here](https://github.com/Hurricane-k/BuildingEfficiencyAgent_in_VirtualEnv) to know more details. You can download and clone if you are interested in it.
+
+In the GitHub example, I use to two methods, model-based (traditional) and model-free (mentioned in this blog), simultaneously. You can see their differences straightforwardly. Model-based method needs to build models of equipment inner mechanism for optimal control set (optimization methods or ergodic).
+
+Model-free based method is used to allocate load between chillers of different make and models. Model-based method is applied to cooling tower (the number of cooling towers under operation and the frequency of fans in cooling tower). Other details have been disclosed in [README.md](https://github.com/Hurricane-k/BuildingEfficiencyAgent_in_VirtualEnv).
+
 # Literature (A Collection of Case Study)
 
 I plan to end up with a collection of case study. Many previous papers have verified the deployment of RL in real or virtual environments. I pick up some case study to share with you all. I summarize them following these criteria: environment, method, building type, system type, and control (goal).
